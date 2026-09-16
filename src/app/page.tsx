@@ -820,7 +820,7 @@ function FooterSection() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hello@flytsocial.com");
+    navigator.clipboard.writeText("hello@webki.io");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -832,13 +832,13 @@ function FooterSection() {
   };
 
   return (
-    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-20 sm:pt-28 md:pt-36 pb-12 px-4 sm:px-6 md:px-8">
+    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-16 sm:pt-24 md:pt-32 pb-12 px-4 sm:px-6 md:px-8">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -top-48 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[500px] bg-accent-maroon/15 blur-[120px] rounded-full" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Top Grand CTA Banner */}
-        <div className="flex flex-col items-center text-center pb-16 sm:pb-24 border-b border-white/10">
+        <div className="flex flex-col items-center text-center pb-14 sm:pb-20 border-b border-white/10">
           <h2 className="max-w-4xl font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight text-white">
             Let&apos;s build your{" "}
             <span className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal italic text-white/90 inline-block">
@@ -879,10 +879,10 @@ function FooterSection() {
           </div>
         </div>
 
-        {/* Main Footer Links & Bio Grid */}
-        <div className="py-14 sm:py-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 border-b border-white/10">
-          {/* Col 1: Brand & Positioning (Spans 5 cols on lg) */}
-          <div className="flex flex-col gap-5 lg:col-span-5">
+        {/* Main Footer Links & Information Grid */}
+        <div className="py-12 sm:py-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 border-b border-white/10">
+          {/* Col 1: Brand & Positioning */}
+          <div className="flex flex-col gap-4 lg:col-span-5">
             <a href="#hero" className="flex items-center gap-2 w-fit">
               <svg
                 width="24"
@@ -906,66 +906,26 @@ function FooterSection() {
             </a>
 
             <p className="max-w-sm text-xs sm:text-sm text-white/65 leading-relaxed font-normal">
-              A premier SaaS &amp; web application engineering studio. We architect, build, and scale production-ready digital products for founders and fast-growing businesses.
+              High-performance web application &amp; SaaS engineering studio. We architect, build, and ship production-ready software for founders and businesses.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-white/50">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-400" />
-              <span>London · San Francisco · Worldwide</span>
-            </div>
-
-            {/* Social Icons */}
-            <div className="mt-2 flex items-center gap-2">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-200 hover:border-white/40 hover:bg-white/15 hover:text-white hover:scale-105"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                </svg>
-              </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X / Twitter"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-200 hover:border-white/40 hover:bg-white/15 hover:text-white hover:scale-105"
-              >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-200 hover:border-white/40 hover:bg-white/15 hover:text-white hover:scale-105"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
+              <span className="inline-block h-2 w-2 rounded-full bg-teal-400 animate-pulse" />
+              <span>Available for new projects worldwide</span>
             </div>
           </div>
 
-          {/* Col 2: Navigation Links (Spans 3 cols on lg) */}
+          {/* Col 2: Navigation Links */}
           <div className="flex flex-col gap-3 lg:col-span-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              Page Navigation
+              Navigation
             </span>
             <ul className="mt-1 flex flex-col gap-2.5 text-xs sm:text-sm text-white/60">
               {[
-                { label: "Overview & Architecture", href: "#hero" },
-                { label: "Core Tech Pillars", href: "#strategy" },
-                { label: "Client Proof & Stores", href: "#testimonials" },
-                { label: "Engineering Team", href: "#team" },
-                { label: "Low-Fi Wireframe Specs", href: "/wireframe" },
+                { label: "Overview", href: "#hero" },
+                { label: "Engineering Stack", href: "#strategy" },
+                { label: "Client Proof", href: "#testimonials" },
+                { label: "Start a Project", href: "mailto:hello@webki.io" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
@@ -979,62 +939,49 @@ function FooterSection() {
             </ul>
           </div>
 
-          {/* Col 3: Direct Reach (Spans 4 cols on lg) */}
+          {/* Col 3: Direct Contact */}
           <div className="flex flex-col gap-3 lg:col-span-4">
             <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              Direct Contact Channels
+              Get in Touch
             </span>
             <ul className="mt-1 flex flex-col gap-2.5 text-xs sm:text-sm text-white/60">
-              {[
-                {
-                  label: "General Inquiries",
-                  detail: "hello@webki.io",
-                  href: "mailto:hello@webki.io?subject=General%20Inquiry",
-                },
-                {
-                  label: "Software Architecture (Rohan)",
-                  detail: "rohan@webki.io",
-                  href: "mailto:rohan@webki.io?subject=Software%20Architecture%20Inquiry",
-                },
-                {
-                  label: "Backend & APIs (Aris)",
-                  detail: "aris@webki.io",
-                  href: "mailto:aris@webki.io?subject=Backend%20Engineering%20Inquiry",
-                },
-                {
-                  label: "UI/UX & Frontend (Klara)",
-                  detail: "klara@webki.io",
-                  href: "mailto:klara@webki.io?subject=UI%20UX%20Frontend%20Inquiry",
-                },
-              ].map((channel) => (
-                <li key={channel.label}>
-                  <a
-                    href={channel.href}
-                    className="group/chan flex flex-col transition-colors duration-200 hover:text-white"
-                  >
-                    <span className="text-[11px] uppercase tracking-wider text-white/40 group-hover/chan:text-teal-400">
-                      {channel.label}
-                    </span>
-                    <span className="text-xs text-white/80 group-hover/chan:text-white">
-                      {channel.detail}
-                    </span>
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="mailto:hello@webki.io?subject=New%20Project%20Inquiry"
+                  className="group/chan flex flex-col transition-colors duration-200 hover:text-white"
+                >
+                  <span className="text-[11px] uppercase tracking-wider text-white/40 group-hover/chan:text-teal-400">
+                    Project Inquiries &amp; Discovery
+                  </span>
+                  <span className="text-sm font-medium text-white/90 group-hover/chan:text-white">
+                    hello@webki.io
+                  </span>
+                </a>
+              </li>
+              <li>
+                <div className="flex flex-col">
+                  <span className="text-[11px] uppercase tracking-wider text-white/40">
+                    Response Commitment
+                  </span>
+                  <span className="text-xs text-white/70">
+                    Replies within 24 hours
+                  </span>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Sub-Footer Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Webki Software Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Webki. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <a
-              href="mailto:legal@flytsocial.com?subject=Privacy%20Inquiry"
+              href="mailto:hello@webki.io?subject=Privacy%20Inquiry"
               className="hover:text-white transition-colors"
             >
-              Privacy &amp; Terms
+              Contact &amp; Privacy
             </a>
             <button
               type="button"
