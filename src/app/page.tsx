@@ -455,30 +455,6 @@ const testimonialsData: TestimonialItem[] = [
     category: "creators",
     badge: "ASTROLOGY & JEWELRY",
   },
-  {
-    id: "5",
-    author: "Kabir",
-    role: "Technical Lead",
-    company: "NexusCloud",
-    quote:
-      "From database schema to production deploy in under 3 weeks. Clean architecture, lightning-fast edge latency, and zero scaling hiccups.",
-    metric: "3 Weeks",
-    metricLabel: "MVP to Production",
-    category: "agencies",
-    badge: "SAAS PLATFORM",
-  },
-  {
-    id: "6",
-    author: "Devika",
-    role: "Brand Founder",
-    company: "AuraLifestyle",
-    quote:
-      "Our direct customer orders surged right after launch. The modern checkout flow and mobile speed converted traffic like never before.",
-    metric: "2.8x",
-    metricLabel: "Conversion Surge",
-    category: "creators",
-    badge: "D2C APPAREL",
-  },
 ];
 
 const testimonialCategories = [
