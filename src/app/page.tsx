@@ -153,7 +153,7 @@ const pillars = [
     icon: <Compass size={28} strokeWidth={1.5} />,
   },
   {
-    label: "Full-Stack Dev",
+    label: "Full Stack Dev",
     delay: 0.3,
     icon: <Sparkles size={28} strokeWidth={1.5} />,
   },
@@ -410,18 +410,18 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: "saas",
-    badge: "01 • SaaS & Cloud",
+    badge: "01 SaaS & Cloud",
     title: "SaaS Development & MVP",
-    subtitle: "From architecture to multi-tenant production scale.",
+    subtitle: "From architecture to multi tenant production scale.",
     description:
-      "We design, engineer, and deploy robust Software-as-a-Service platforms. Complete with Stripe subscription billing, role-based access, high-throughput APIs, and enterprise cloud infrastructure.",
+      "We design, engineer, and deploy robust Software as a Service platforms. Complete with Stripe subscription billing, role based access, high throughput APIs, and enterprise cloud infrastructure.",
     icon: <Layers size={22} />,
     capabilities: [
-      "Multi-tenant Cloud Architecture",
+      "Multi tenant Cloud Architecture",
       "Stripe & Subscription Billing Integration",
-      "Secure Auth & Role-Based Access Control",
+      "Secure Auth & Role Based Access Control",
       "PostgreSQL & Scalable API Pipelines",
-      "Automated CI/CD & Zero-Downtime Deployments",
+      "Automated CI/CD & Zero Downtime Deployments",
     ],
     ctaLabel: "Start your SaaS",
     inquirySubject: "SaaS%20Development%20Project",
@@ -431,18 +431,18 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: "webapps",
-    badge: "02 • Web Applications",
+    badge: "02 Web Applications",
     title: "Custom Web Applications",
-    subtitle: "High-performance digital products & dashboards.",
+    subtitle: "High performance digital products & dashboards.",
     description:
-      "Full-stack custom web applications engineered with Next.js App Router for sub-second speeds, real-time dashboards, interactive workflows, and bespoke business systems.",
+      "Full stack custom web applications engineered with Next.js App Router for sub second speeds, real time dashboards, interactive workflows, and bespoke business systems.",
     icon: <Code2 size={22} />,
     capabilities: [
       "Modern Next.js & React 19 Frontend",
-      "Real-Time Analytics & Admin Dashboards",
+      "Real Time Analytics & Admin Dashboards",
       "Custom Workflow & API Integrations",
-      "Sub-second Load Times & Edge Optimization",
-      "Responsive Cross-Device Experience",
+      "Sub second Load Times & Edge Optimization",
+      "Responsive Cross Device Experience",
     ],
     ctaLabel: "Build your Web App",
     inquirySubject: "Web%20Application%20Project",
@@ -452,18 +452,18 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: "personal-branding",
-    badge: "03 • Personal Branding",
+    badge: "03 Personal Branding",
     title: "Personal Branding & Authority",
-    subtitle: "Turn your story into a high-converting digital presence.",
+    subtitle: "Turn your story into a high converting digital presence.",
     description:
-      "We architect high-converting personal brand platforms, founder storefronts, and authority-driven websites that position you as an industry leader and channel inquiries straight to WhatsApp & CRM.",
+      "We architect high converting personal brand platforms, founder storefronts, and authority driven websites that position you as an industry leader and channel inquiries straight to WhatsApp & CRM.",
     icon: <Crown size={22} />,
     capabilities: [
       "Founder & Creator Authority Hubs",
       "Direct WhatsApp & CRM Inbound Lead Capture",
-      "Social Proof & High-Trust Case Studies",
+      "Social Proof & High Trust Case Studies",
       "Bespoke Typographic & Visual Brand Identity",
-      "Conversion Funnels for High-Ticket Offers",
+      "Conversion Funnels for High Ticket Offers",
     ],
     ctaLabel: "Scale your Personal Brand",
     inquirySubject: "Personal%20Branding%20Inquiry",
@@ -499,7 +499,7 @@ function ServicesSection() {
           </h2>
 
           <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed px-2">
-            End-to-end technical engineering and brand authority services designed to scale your business, convert visitors, and establish market dominance.
+            End to end technical engineering and brand authority services designed to scale your business, convert visitors, and establish market dominance.
           </p>
         </div>
 
@@ -600,7 +600,7 @@ const testimonialsData: TestimonialItem[] = [
     quote:
       "We sell everything from home decor to gadgets. Webki let us list every category without touching a single line of code.",
     category: "stores",
-    categoryLabel: "Multi-category store",
+    categoryLabel: "Multi category store",
   },
   {
     id: "2",
@@ -620,7 +620,7 @@ const testimonialsData: TestimonialItem[] = [
     quote:
       "We built Ajay with our agency, Scalisite, and the experience was smooth from strategy to launch. The platform gave us a polished storefront that feels premium and easy to manage.",
     category: "agencies",
-    categoryLabel: "Agency-built store",
+    categoryLabel: "Agency built store",
   },
   {
     id: "4",
@@ -628,7 +628,7 @@ const testimonialsData: TestimonialItem[] = [
     role: "Creator & Founder",
     company: "AstroJewels",
     quote:
-      "I wanted a simple way to share my astrology-inspired bracelets with customers online. Webki made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
+      "I wanted a simple way to share my astrology inspired bracelets with customers online. Webki made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
     category: "creators",
     categoryLabel: "Astrology & Jewelry",
   },
@@ -637,7 +637,7 @@ const testimonialsData: TestimonialItem[] = [
 const testimonialCategories = [
   { id: "all", label: "All", fullLabel: "All Stories" },
   { id: "stores", label: "Stores", fullLabel: "Retail & Stores" },
-  { id: "agencies", label: "Agencies", fullLabel: "Agency-Built" },
+  { id: "agencies", label: "Agencies", fullLabel: "Agency Built" },
   { id: "creators", label: "Creators", fullLabel: "Creators & D2C" },
 ] as const;
 
@@ -797,7 +797,7 @@ function TestimonialsSection() {
             <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-auto">
               <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/15 border border-purple-400/20 px-3 py-1 text-xs font-semibold text-purple-200">
                 <Sparkles size={13} className="text-purple-300 shrink-0" />
-                <span>Production-Ready Web Apps</span>
+                <span>Production Ready Web Apps</span>
               </div>
 
               <div>
@@ -805,7 +805,7 @@ function TestimonialsSection() {
                   Ready to build your next web app or SaaS?
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-white/70 max-w-xl">
-                  Turn your product idea into a high-performance, production-ready platform with our full-stack engineering team.
+                  Turn your product idea into a high performance, production ready platform with our full stack engineering team.
                 </p>
               </div>
             </div>
@@ -850,8 +850,8 @@ const teamMembers: TeamMember[] = [
     role: "Lead Software Architect",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
-    bio: "Architects scalable full-stack applications, Next.js web apps, and resilient cloud infrastructure for fast-growing SaaS products.",
-    tags: ["Full-Stack Architecture", "Next.js & React", "System Design"],
+    bio: "Architects scalable full stack applications, Next.js web apps, and resilient cloud infrastructure for fast growing SaaS products.",
+    tags: ["Full Stack Architecture", "Next.js & React", "System Design"],
     linkedin: "#",
     twitter: "#",
     email: "rohan@webki.io",
@@ -862,7 +862,7 @@ const teamMembers: TeamMember[] = [
     role: "Principal Backend Engineer",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80",
-    bio: "Specializes in high-throughput APIs, PostgreSQL database architecture, payment integrations, and microservices security.",
+    bio: "Specializes in high throughput APIs, PostgreSQL database architecture, payment integrations, and microservices security.",
     tags: ["Distributed Systems", "REST & GraphQL", "Database Scale"],
     linkedin: "#",
     twitter: "#",
@@ -1037,7 +1037,7 @@ function FooterSection() {
           </h2>
 
           <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
-            Ready to launch your high-performance web app, MVP, or SaaS? Let&apos;s map out your technical architecture and product roadmap.
+            Ready to launch your high performance web app, MVP, or SaaS? Let&apos;s map out your technical architecture and product roadmap.
           </p>
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
@@ -1095,7 +1095,7 @@ function FooterSection() {
             </a>
 
             <p className="max-w-sm text-xs sm:text-sm text-white/65 leading-relaxed font-normal">
-              High-performance SaaS engineering, custom web applications, and personal branding studio. We architect, build, and ship production-ready digital products and authority platforms.
+              High performance SaaS engineering, custom web applications, and personal branding studio. We architect, build, and ship production ready digital products and authority platforms.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-white/50">
@@ -1731,7 +1731,7 @@ export default function Home() {
                 {/* Trust Badge */}
                 <div className="mt-2.5 sm:mt-3 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-white/70">
                   <ShieldCheck size={14} className="text-purple-300 shrink-0" />
-                  <span>SaaS • Custom Web Apps • Personal Branding</span>
+                  <span>SaaS, Custom Web Apps &amp; Personal Branding</span>
                 </div>
 
                 {/* Scroll Cue Hint */}
@@ -1773,7 +1773,7 @@ export default function Home() {
                       className="absolute inset-x-0 top-0 font-display text-3xl leading-tight text-white/90 md:text-4xl"
                       style={{ opacity: travelLine2Opacity, y: travelLine2Y }}
                     >
-                      To a production-ready SaaS.
+                      To a production ready SaaS.
                     </motion.p>
                   </div>
 
