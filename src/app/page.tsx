@@ -27,6 +27,7 @@ import {
   Check,
   Copy,
 } from "lucide-react";
+import { Marquee } from "@/components/marquee";
 
 const navLinks = [
   { label: "Overview", href: "#hero" },
@@ -428,7 +429,7 @@ const testimonialsData: TestimonialItem[] = [
     metric: "100%",
     metricLabel: "WhatsApp Orders",
     category: "stores",
-    badge: "Mobiles & Accessories",
+    badge: "MOBILES & ACCESSORIES",
   },
   {
     id: "3",
@@ -440,7 +441,7 @@ const testimonialsData: TestimonialItem[] = [
     metric: "10x",
     metricLabel: "Faster Store Launch",
     category: "agencies",
-    badge: "Agency-Built Store",
+    badge: "AGENCY-BUILT STORE",
   },
   {
     id: "4",
@@ -452,7 +453,31 @@ const testimonialsData: TestimonialItem[] = [
     metric: "Instant",
     metricLabel: "Inquiries to Orders",
     category: "creators",
-    badge: "Astrology & Jewelry",
+    badge: "ASTROLOGY & JEWELRY",
+  },
+  {
+    id: "5",
+    author: "Kabir",
+    role: "Technical Lead",
+    company: "NexusCloud",
+    quote:
+      "From database schema to production deploy in under 3 weeks. Clean architecture, lightning-fast edge latency, and zero scaling hiccups.",
+    metric: "3 Weeks",
+    metricLabel: "MVP to Production",
+    category: "agencies",
+    badge: "SAAS PLATFORM",
+  },
+  {
+    id: "6",
+    author: "Devika",
+    role: "Brand Founder",
+    company: "AuraLifestyle",
+    quote:
+      "Our direct customer orders surged right after launch. The modern checkout flow and mobile speed converted traffic like never before.",
+    metric: "2.8x",
+    metricLabel: "Conversion Surge",
+    category: "creators",
+    badge: "D2C APPAREL",
   },
 ];
 
@@ -463,6 +488,82 @@ const testimonialCategories = [
   { id: "creators", label: "Creators", fullLabel: "Creators & D2C" },
 ] as const;
 
+function TestimonialCard({ item }: { item: TestimonialItem }) {
+  return (
+    <div
+      key={item.id}
+      className="group relative flex w-[320px] sm:w-[380px] md:w-[420px] flex-col justify-between rounded-2xl sm:rounded-3xl border border-stone-200/90 bg-white/95 p-5 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-purple/40 hover:ring-2 hover:ring-accent-purple/10 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.09)]"
+    >
+      <div>
+        {/* Top Bar: Stars + Metric Badge */}
+        <div className="flex items-center justify-between gap-2">
+          {/* 5-Star Rating */}
+          <div className="flex items-center gap-1 text-amber-400 shrink-0">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                size={14}
+                className="fill-amber-400 text-amber-400 sm:w-4 sm:h-4"
+              />
+            ))}
+          </div>
+
+          {/* Result Metric Pill */}
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-stone-50/90 px-3 py-1 text-xs text-neutral-700 shadow-2xs transition-colors duration-200 group-hover:border-accent-maroon/25 group-hover:bg-accent-maroon/[0.05] shrink-0">
+            <span className="font-bold text-accent-maroon text-[11px] sm:text-xs">
+              {item.metric}
+            </span>
+            <span className="text-neutral-400">·</span>
+            <span className="font-medium text-neutral-600 text-[10px] sm:text-xs">
+              {item.metricLabel}
+            </span>
+          </div>
+        </div>
+
+        {/* Badge Pill if applicable */}
+        {item.badge && (
+          <div className="mt-3 sm:mt-4 inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-accent-maroon border border-purple-200/60">
+            <Sparkles size={11} className="text-accent-maroon shrink-0" />
+            <span>{item.badge}</span>
+          </div>
+        )}
+
+        {/* Quote Content */}
+        <div className="mt-4 sm:mt-5">
+          <p className="font-normal text-neutral-800 leading-relaxed tracking-[-0.01em] transition-colors duration-200 group-hover:text-neutral-950 text-[14px] sm:text-[15.5px] md:text-base">
+            &ldquo;{item.quote}&rdquo;
+          </p>
+        </div>
+      </div>
+
+      {/* Author Card Footer */}
+      <div className="mt-5 sm:mt-7 flex items-center justify-between border-t border-stone-100 pt-3.5 sm:pt-4 gap-3">
+        <div className="flex flex-col min-w-0 flex-1">
+          <div className="flex items-center gap-1.5">
+            <span className="text-sm sm:text-base font-bold text-neutral-900 tracking-tight truncate">
+              {item.author}
+            </span>
+            <CheckCircle2
+              size={14}
+              className="text-teal-600 fill-teal-50 shrink-0"
+            />
+          </div>
+          <span className="text-xs sm:text-[13px] text-neutral-500 font-normal leading-tight mt-0.5 truncate">
+            {item.role} ·{" "}
+            <strong className="font-semibold text-neutral-800">
+              {item.company}
+            </strong>
+          </span>
+        </div>
+
+        <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-400 transition-all duration-200 group-hover:bg-accent-maroon group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 shadow-2xs">
+          <ArrowUpRight size={13} className="sm:w-3.5 sm:h-3.5" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TestimonialsSection() {
   const [activeCategory, setActiveCategory] =
     useState<TestimonialCategory>("all");
@@ -471,6 +572,16 @@ function TestimonialsSection() {
     if (activeCategory === "all") return testimonialsData;
     return testimonialsData.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
+
+  const firstRow = useMemo(() => {
+    if (filteredTestimonials.length <= 2) return filteredTestimonials;
+    return filteredTestimonials.slice(0, Math.ceil(filteredTestimonials.length / 2));
+  }, [filteredTestimonials]);
+
+  const secondRow = useMemo(() => {
+    if (filteredTestimonials.length <= 2) return filteredTestimonials;
+    return filteredTestimonials.slice(Math.ceil(filteredTestimonials.length / 2));
+  }, [filteredTestimonials]);
 
   return (
     <section id="testimonials" className="relative w-full bg-light-bg py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 overflow-hidden">
@@ -554,106 +665,26 @@ function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Bento Grid */}
-        <motion.div
-          layout
-          className="mt-7 sm:mt-12 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredTestimonials.map((item) => {
-              const isSpotlight = item.featured;
+        {/* Continuous Infinite Scrolling Testimonials Marquee */}
+        <div className="relative mt-8 sm:mt-14 w-full overflow-hidden flex flex-col gap-4 sm:gap-6">
+          {/* Left & Right gradient edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 md:w-48 bg-gradient-to-r from-light-bg via-light-bg/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 md:w-48 bg-gradient-to-l from-light-bg via-light-bg/80 to-transparent z-10" />
 
-              return (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96, y: 12 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96, y: 12 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className={`group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-stone-200/90 bg-white/95 p-5 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-maroon/35 hover:ring-2 hover:ring-accent-maroon/10 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.09)] ${
-                    isSpotlight
-                      ? "bg-gradient-to-br from-white via-white to-purple-500/[0.04] border-purple-200 hover:border-purple-400"
-                      : ""
-                  }`}
-                >
-                  {/* Top Bar: Stars + Metric Badge */}
-                  <div>
-                    <div className="flex items-center justify-between gap-2">
-                      {/* 5-Star Rating */}
-                      <div className="flex items-center gap-1 text-amber-400 shrink-0">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={13}
-                            className="fill-amber-400 text-amber-400 sm:w-3.5 sm:h-3.5"
-                          />
-                        ))}
-                      </div>
+          {/* Top Marquee Row */}
+          <Marquee pauseOnHover repeat={4} className="[--duration:40s] [--gap:1.25rem] py-1 sm:py-2">
+            {firstRow.map((item) => (
+              <TestimonialCard key={item.id} item={item} />
+            ))}
+          </Marquee>
 
-                      {/* Result Metric Pill with group hover accent */}
-                      <div className="inline-flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-stone-50/90 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs text-neutral-700 shadow-2xs transition-colors duration-200 group-hover:border-accent-maroon/25 group-hover:bg-accent-maroon/[0.05] shrink-0">
-                        <span className="font-bold text-accent-maroon text-[11px] sm:text-xs">
-                          {item.metric}
-                        </span>
-                        <span className="text-neutral-400">·</span>
-                        <span className="font-medium text-neutral-600 text-[10px] sm:text-xs">
-                          {item.metricLabel}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Featured Pill if applicable */}
-                    {item.badge && (
-                      <div className="mt-3 sm:mt-4 inline-flex items-center gap-1.5 rounded-full bg-accent-maroon/[0.07] px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-accent-maroon border border-accent-maroon/15">
-                        <Sparkles size={11} className="text-accent-maroon shrink-0" />
-                        {item.badge}
-                      </div>
-                    )}
-
-                    {/* Quote Content */}
-                    <div className="mt-4 sm:mt-5">
-                      <p
-                        className={`font-normal text-neutral-800 leading-relaxed tracking-[-0.01em] transition-colors duration-200 group-hover:text-neutral-950 ${
-                          isSpotlight
-                            ? "text-[15px] sm:text-lg md:text-[19px]"
-                            : "text-[13.5px] sm:text-[15px] md:text-base"
-                        }`}
-                      >
-                        &ldquo;{item.quote}&rdquo;
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Author Card Footer */}
-                  <div className="mt-5 sm:mt-8 flex items-center justify-between border-t border-stone-100 pt-3.5 sm:pt-5 gap-3">
-                    <div className="flex flex-col min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-sm sm:text-base font-bold text-neutral-900 tracking-tight truncate">
-                          {item.author}
-                        </span>
-                        <CheckCircle2
-                          size={14}
-                          className="text-teal-600 fill-teal-50 shrink-0"
-                        />
-                      </div>
-                      <span className="text-xs sm:text-[13px] text-neutral-500 font-normal leading-tight mt-0.5 truncate">
-                        {item.role} ·{" "}
-                        <strong className="font-semibold text-neutral-800">
-                          {item.company}
-                        </strong>
-                      </span>
-                    </div>
-
-                    <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-400 transition-all duration-200 group-hover:bg-accent-maroon group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 shadow-2xs">
-                      <ArrowUpRight size={13} className="sm:w-3.5 sm:h-3.5" />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+          {/* Bottom Marquee Row (Reverse Direction) */}
+          <Marquee reverse pauseOnHover repeat={4} className="[--duration:42s] [--gap:1.25rem] py-1 sm:py-2">
+            {secondRow.map((item) => (
+              <TestimonialCard key={item.id} item={item} />
+            ))}
+          </Marquee>
+        </div>
 
         {/* Bottom Social Proof & CTA Banner */}
         <div className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-purple-300/30 bg-gradient-to-r from-dark-bg via-[#260a48] to-dark-bg p-6 sm:p-8 md:p-10 shadow-xl text-white">
