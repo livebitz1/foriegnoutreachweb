@@ -398,26 +398,20 @@ interface TestimonialItem {
   role: string;
   company: string;
   quote: string;
-  metric: string;
-  metricLabel: string;
   category: "stores" | "agencies" | "creators";
-  badge?: string;
-  featured?: boolean;
+  categoryLabel: string;
 }
 
 const testimonialsData: TestimonialItem[] = [
   {
     id: "1",
     author: "Rohan",
-    role: "Founder",
+    role: "Store Owner",
     company: "UniqueHub",
     quote:
       "We sell everything from home decor to gadgets. Webki let us list every category without touching a single line of code.",
-    metric: "0 Code",
-    metricLabel: "Multi-Category Store",
     category: "stores",
-    badge: "Multi-Category Store",
-    featured: true,
+    categoryLabel: "Multi-category store",
   },
   {
     id: "2",
@@ -426,10 +420,8 @@ const testimonialsData: TestimonialItem[] = [
     company: "PriyaMobilePark",
     quote:
       "Every order comes straight to our WhatsApp now. No more missed calls, no more confusion with customers.",
-    metric: "100%",
-    metricLabel: "WhatsApp Orders",
     category: "stores",
-    badge: "MOBILES & ACCESSORIES",
+    categoryLabel: "Mobiles & accessories",
   },
   {
     id: "3",
@@ -438,10 +430,8 @@ const testimonialsData: TestimonialItem[] = [
     company: "Scalisite",
     quote:
       "We built Ajay with our agency, Scalisite, and the experience was smooth from strategy to launch. The platform gave us a polished storefront that feels premium and easy to manage.",
-    metric: "10x",
-    metricLabel: "Faster Store Launch",
     category: "agencies",
-    badge: "AGENCY-BUILT STORE",
+    categoryLabel: "Agency-built store",
   },
   {
     id: "4",
@@ -450,10 +440,8 @@ const testimonialsData: TestimonialItem[] = [
     company: "AstroJewels",
     quote:
       "I wanted a simple way to share my astrology-inspired bracelets with customers online. Webki made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
-    metric: "Instant",
-    metricLabel: "Inquiries to Orders",
     category: "creators",
-    badge: "ASTROLOGY & JEWELRY",
+    categoryLabel: "Astrology & Jewelry",
   },
 ];
 
@@ -471,7 +459,7 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
       className="group relative flex w-[320px] sm:w-[380px] md:w-[420px] flex-col justify-between rounded-2xl sm:rounded-3xl border border-stone-200/90 bg-white/95 p-5 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-purple/40 hover:ring-2 hover:ring-accent-purple/10 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.09)]"
     >
       <div>
-        {/* Top Bar: Stars + Metric Badge */}
+        {/* Top Bar: Stars + Category Badge */}
         <div className="flex items-center justify-between gap-2">
           {/* 5-Star Rating */}
           <div className="flex items-center gap-1 text-amber-400 shrink-0">
@@ -484,25 +472,12 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
             ))}
           </div>
 
-          {/* Result Metric Pill */}
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-stone-50/90 px-3 py-1 text-xs text-neutral-700 shadow-2xs transition-colors duration-200 group-hover:border-accent-maroon/25 group-hover:bg-accent-maroon/[0.05] shrink-0">
-            <span className="font-bold text-accent-maroon text-[11px] sm:text-xs">
-              {item.metric}
-            </span>
-            <span className="text-neutral-400">·</span>
-            <span className="font-medium text-neutral-600 text-[10px] sm:text-xs">
-              {item.metricLabel}
-            </span>
+          {/* Category Pill */}
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-accent-maroon border border-purple-200/70 shrink-0">
+            <Sparkles size={11} className="text-accent-maroon shrink-0" />
+            <span>{item.categoryLabel}</span>
           </div>
         </div>
-
-        {/* Badge Pill if applicable */}
-        {item.badge && (
-          <div className="mt-3 sm:mt-4 inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-accent-maroon border border-purple-200/60">
-            <Sparkles size={11} className="text-accent-maroon shrink-0" />
-            <span>{item.badge}</span>
-          </div>
-        )}
 
         {/* Quote Content */}
         <div className="mt-4 sm:mt-5">
@@ -525,10 +500,7 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
             />
           </div>
           <span className="text-xs sm:text-[13px] text-neutral-500 font-normal leading-tight mt-0.5 truncate">
-            {item.role} ·{" "}
-            <strong className="font-semibold text-neutral-800">
-              {item.company}
-            </strong>
+            Store: <strong className="font-semibold text-neutral-800">{item.company}</strong>
           </span>
         </div>
 
@@ -549,15 +521,8 @@ function TestimonialsSection() {
     return testimonialsData.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
 
-  const firstRow = useMemo(() => {
-    if (filteredTestimonials.length <= 2) return filteredTestimonials;
-    return filteredTestimonials.slice(0, Math.ceil(filteredTestimonials.length / 2));
-  }, [filteredTestimonials]);
-
-  const secondRow = useMemo(() => {
-    if (filteredTestimonials.length <= 2) return filteredTestimonials;
-    return filteredTestimonials.slice(Math.ceil(filteredTestimonials.length / 2));
-  }, [filteredTestimonials]);
+  const firstRow = useMemo(() => filteredTestimonials, [filteredTestimonials]);
+  const secondRow = useMemo(() => [...filteredTestimonials].reverse(), [filteredTestimonials]);
 
   return (
     <section id="testimonials" className="relative w-full bg-light-bg py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 overflow-hidden">
@@ -622,15 +587,15 @@ function TestimonialsSection() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 md:w-48 bg-gradient-to-r from-light-bg via-light-bg/80 to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 md:w-48 bg-gradient-to-l from-light-bg via-light-bg/80 to-transparent z-10" />
 
-          {/* Top Marquee Row */}
-          <Marquee pauseOnHover repeat={4} className="[--duration:40s] [--gap:1.25rem] py-1 sm:py-2">
+          {/* Top Marquee Row (Brisk 18s continuous loop) */}
+          <Marquee pauseOnHover repeat={4} className="[--duration:18s] [--gap:1.25rem] py-1 sm:py-2">
             {firstRow.map((item) => (
               <TestimonialCard key={item.id} item={item} />
             ))}
           </Marquee>
 
-          {/* Bottom Marquee Row (Reverse Direction) */}
-          <Marquee reverse pauseOnHover repeat={4} className="[--duration:42s] [--gap:1.25rem] py-1 sm:py-2">
+          {/* Bottom Marquee Row (Reverse Direction, 20s continuous loop) */}
+          <Marquee reverse pauseOnHover repeat={4} className="[--duration:20s] [--gap:1.25rem] py-1 sm:py-2">
             {secondRow.map((item) => (
               <TestimonialCard key={item.id} item={item} />
             ))}
