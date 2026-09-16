@@ -27,9 +27,9 @@ const scriptFont = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Webki — Build High-Performance Web Apps & SaaS Products",
+  title: "Algrow Media — Build High-Performance Web Apps, SaaS & Personal Branding",
   description:
-    "We build, launch, and scale production-ready SaaS platforms, custom web applications, and fast MVPs for founders and businesses.",
+    "Algrow Media builds, launches, and scales production ready SaaS platforms, custom web applications, and personal branding platforms for founders and businesses.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

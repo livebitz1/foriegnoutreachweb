@@ -38,7 +38,7 @@ const navLinks = [
   { label: "Tech Stack", href: "#strategy" },
   { label: "Client Proof", href: "#testimonials" },
   { label: "Team", href: "#team" },
-  { label: "Contact", href: "mailto:hello@webki.io" },
+  { label: "Contact", href: "mailto:hello@algrowmedia.com" },
 ];
 
 const cards = [
@@ -561,7 +561,7 @@ function ServicesSection() {
               {/* Action Button */}
               <div className="mt-8 pt-4 border-t border-stone-100">
                 <a
-                  href={`mailto:hello@webki.io?subject=${service.inquirySubject}`}
+                  href={`mailto:hello@algrowmedia.com?subject=${service.inquirySubject}`}
                   className="group/btn inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-stone-100 px-5 py-2.5 text-xs sm:text-sm font-semibold text-neutral-800 transition-all duration-200 hover:bg-dark-bg hover:text-white hover:scale-[1.02] shadow-2xs"
                 >
                   <span>{service.ctaLabel}</span>
@@ -598,7 +598,7 @@ const testimonialsData: TestimonialItem[] = [
     role: "Store Owner",
     company: "UniqueHub",
     quote:
-      "We sell everything from home decor to gadgets. Webki let us list every category without touching a single line of code.",
+      "We sell everything from home decor to gadgets. Algrow Media let us list every category without touching a single line of code.",
     category: "stores",
     categoryLabel: "Multi category store",
   },
@@ -628,7 +628,7 @@ const testimonialsData: TestimonialItem[] = [
     role: "Creator & Founder",
     company: "AstroJewels",
     quote:
-      "I wanted a simple way to share my astrology inspired bracelets with customers online. Webki made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
+      "I wanted a simple way to share my astrology inspired bracelets with customers online. Algrow Media made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
     category: "creators",
     categoryLabel: "Astrology & Jewelry",
   },
@@ -812,7 +812,7 @@ function TestimonialsSection() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full md:w-auto shrink-0">
               <a
-                href="mailto:hello@webki.io?subject=SaaS%20Project%20Inquiry"
+                href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
                 className="min-h-[44px] sm:min-h-[46px] w-full sm:w-auto rounded-full bg-cream-button px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-md text-center flex items-center justify-center"
               >
                 Start Your Project
@@ -854,7 +854,7 @@ const teamMembers: TeamMember[] = [
     tags: ["Full Stack Architecture", "Next.js & React", "System Design"],
     linkedin: "#",
     twitter: "#",
-    email: "rohan@webki.io",
+    email: "rohan@algrowmedia.com",
   },
   {
     id: "2",
@@ -866,7 +866,7 @@ const teamMembers: TeamMember[] = [
     tags: ["Distributed Systems", "REST & GraphQL", "Database Scale"],
     linkedin: "#",
     twitter: "#",
-    email: "aris@webki.io",
+    email: "aris@algrowmedia.com",
   },
   {
     id: "3",
@@ -878,7 +878,7 @@ const teamMembers: TeamMember[] = [
     tags: ["Product UI/UX", "Design Systems", "Web Performance"],
     linkedin: "#",
     twitter: "#",
-    email: "klara@webki.io",
+    email: "klara@algrowmedia.com",
   },
 ];
 
@@ -1009,7 +1009,7 @@ function FooterSection() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hello@webki.io");
+    navigator.clipboard.writeText("hello@algrowmedia.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -1042,7 +1042,7 @@ function FooterSection() {
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
             <a
-              href="mailto:hello@webki.io?subject=Technical%20Discovery%20Call%20Inquiry"
+              href="mailto:hello@algrowmedia.com?subject=Technical%20Discovery%20Call%20Inquiry"
               className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-cream-button px-8 py-3.5 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-lg text-center"
             >
               Schedule a Technical Discovery Call →
@@ -1061,7 +1061,7 @@ function FooterSection() {
               ) : (
                 <>
                   <Copy size={14} className="text-white/60" />
-                  <span>hello@webki.io</span>
+                  <span>hello@algrowmedia.com</span>
                 </>
               )}
             </button>
@@ -1090,7 +1090,7 @@ function FooterSection() {
                 />
               </svg>
               <span className="text-xl font-bold tracking-tight text-white hover:text-teal-400 transition-colors">
-                Webki
+                Algrow Media
               </span>
             </a>
 
@@ -1115,7 +1115,7 @@ function FooterSection() {
                 { label: "Services", href: "#services" },
                 { label: "Tech Stack", href: "#strategy" },
                 { label: "Client Proof", href: "#testimonials" },
-                { label: "Start a Project", href: "mailto:hello@webki.io" },
+                { label: "Start a Project", href: "mailto:hello@algrowmedia.com" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
@@ -1137,14 +1137,14 @@ function FooterSection() {
             <ul className="mt-1 flex flex-col gap-2.5 text-xs sm:text-sm text-white/60">
               <li>
                 <a
-                  href="mailto:hello@webki.io?subject=New%20Project%20Inquiry"
+                  href="mailto:hello@algrowmedia.com?subject=New%20Project%20Inquiry"
                   className="group/chan flex flex-col transition-colors duration-200 hover:text-white"
                 >
                   <span className="text-[11px] uppercase tracking-wider text-white/40 group-hover/chan:text-teal-400">
                     Project Inquiries &amp; Discovery
                   </span>
                   <span className="text-sm font-medium text-white/90 group-hover/chan:text-white">
-                    hello@webki.io
+                    hello@algrowmedia.com
                   </span>
                 </a>
               </li>
@@ -1164,11 +1164,11 @@ function FooterSection() {
 
         {/* Bottom Sub-Footer Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Webki. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Algrow Media. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <a
-              href="mailto:hello@webki.io?subject=Privacy%20Inquiry"
+              href="mailto:hello@algrowmedia.com?subject=Privacy%20Inquiry"
               className="hover:text-white transition-colors"
             >
               Contact &amp; Privacy
@@ -1566,7 +1566,7 @@ export default function Home() {
                   />
                 </svg>
                 <span className="text-[18px] font-bold text-white transition-colors duration-200 group-hover:text-white">
-                  Webki
+                  Algrow Media
                 </span>
               </div>
 
@@ -1588,7 +1588,7 @@ export default function Home() {
               {/* Right Side Actions: Desktop CTA + Mobile Hamburger */}
               <div className="flex items-center gap-3">
                 <a
-                  href="mailto:hello@webki.io?subject=SaaS%20Project%20Inquiry"
+                  href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
                   className="hidden min-h-[38px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:border-white/40 hover:bg-white/20 lg:inline-flex"
                 >
                   Contact Us
@@ -1628,7 +1628,7 @@ export default function Home() {
         <div className="fixed inset-0 z-[100] flex flex-col bg-dark-bg lg:hidden">
           <div className="flex items-center justify-between border-b border-white/10 px-6 py-6">
             <span className="text-[18px] font-bold text-white">
-              Webki
+              Algrow Media
             </span>
             <button
               type="button"
@@ -1715,7 +1715,7 @@ export default function Home() {
               >
                 <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
                   <a
-                    href="mailto:hello@webki.io?subject=SaaS%20Project%20Inquiry"
+                    href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
                     className="min-h-[42px] sm:min-h-[46px] rounded-full bg-cream-button px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-lg shadow-purple-950/30 flex items-center justify-center"
                   >
                     Get started
@@ -1853,7 +1853,7 @@ export default function Home() {
 
                 <div className="mt-4 sm:mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 md:justify-start md:gap-4">
                   <a
-                    href="mailto:hello@webki.io?subject=SaaS%20Project%20Inquiry"
+                    href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
                     className="min-h-[40px] sm:min-h-[44px] rounded-full bg-dark-bg px-6 py-2 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-white transition hover:bg-black hover:scale-[1.02] shadow-md flex items-center justify-center"
                   >
                     Start Your Project
