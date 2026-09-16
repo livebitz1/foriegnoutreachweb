@@ -403,6 +403,8 @@ interface ServiceItem {
   ctaLabel: string;
   inquirySubject: string;
   tagColor: string;
+  iconColor: string;
+  iconBgColor: string;
   popular?: boolean;
 }
 
@@ -414,7 +416,7 @@ const servicesData: ServiceItem[] = [
     subtitle: "From architecture to multi-tenant production scale.",
     description:
       "We design, engineer, and deploy robust Software-as-a-Service platforms. Complete with Stripe subscription billing, role-based access, high-throughput APIs, and enterprise cloud infrastructure.",
-    icon: <Layers size={22} className="text-accent-maroon" />,
+    icon: <Layers size={22} />,
     capabilities: [
       "Multi-tenant Cloud Architecture",
       "Stripe & Subscription Billing Integration",
@@ -424,7 +426,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Start your SaaS",
     inquirySubject: "SaaS%20Development%20Project",
-    tagColor: "border-purple-200/70 bg-purple-50 text-accent-maroon",
+    tagColor: "border-purple-200/90 bg-purple-50 text-purple-900",
+    iconColor: "text-purple-700",
+    iconBgColor: "border-purple-200/80 bg-purple-50/80",
     popular: true,
   },
   {
@@ -434,7 +438,7 @@ const servicesData: ServiceItem[] = [
     subtitle: "High-performance digital products & dashboards.",
     description:
       "Full-stack custom web applications engineered with Next.js App Router for sub-second speeds, real-time dashboards, interactive workflows, and bespoke business systems.",
-    icon: <Code2 size={22} className="text-accent-maroon" />,
+    icon: <Code2 size={22} />,
     capabilities: [
       "Modern Next.js & React 19 Frontend",
       "Real-Time Analytics & Admin Dashboards",
@@ -444,7 +448,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Build your Web App",
     inquirySubject: "Web%20Application%20Project",
-    tagColor: "border-teal-200/70 bg-teal-50 text-teal-800",
+    tagColor: "border-teal-200/90 bg-teal-50 text-teal-900",
+    iconColor: "text-teal-700",
+    iconBgColor: "border-teal-200/80 bg-teal-50/80",
   },
   {
     id: "personal-branding",
@@ -453,7 +459,7 @@ const servicesData: ServiceItem[] = [
     subtitle: "Turn your story into a high-converting digital presence.",
     description:
       "We architect high-converting personal brand platforms, founder storefronts, and authority-driven websites that position you as an industry leader and channel inquiries straight to WhatsApp & CRM.",
-    icon: <Crown size={22} className="text-accent-maroon" />,
+    icon: <Crown size={22} />,
     capabilities: [
       "Founder & Creator Authority Hubs",
       "Direct WhatsApp & CRM Inbound Lead Capture",
@@ -463,7 +469,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Scale your Personal Brand",
     inquirySubject: "Personal%20Branding%20Inquiry",
-    tagColor: "border-amber-200/70 bg-amber-50 text-amber-900",
+    tagColor: "border-amber-200/90 bg-amber-50 text-amber-950",
+    iconColor: "text-amber-700",
+    iconBgColor: "border-amber-200/80 bg-amber-50/80",
   },
 ];
 
@@ -474,19 +482,19 @@ function ServicesSection() {
       className="relative w-full bg-light-bg py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-100/80 overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-40 left-1/3 w-[300px] sm:w-[600px] md:w-[700px] h-[350px] bg-gradient-to-b from-accent-maroon/12 via-purple-500/5 to-transparent blur-3xl opacity-60" />
+      <div className="pointer-events-none absolute -top-40 left-1/3 w-[300px] sm:w-[600px] md:w-[700px] h-[350px] bg-gradient-to-b from-purple-900/10 via-purple-500/5 to-transparent blur-3xl opacity-60" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-accent-maroon/20 bg-accent-maroon/5 px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent-maroon shadow-sm">
-            <Sparkles size={13} className="text-accent-maroon shrink-0" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-200/80 bg-purple-50/80 px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-900 shadow-xs">
+            <Sparkles size={13} className="text-purple-700 shrink-0" />
             <span>Our Core Capabilities</span>
           </div>
 
           <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-neutral-900">
             SaaS, Web Apps &amp;{" "}
-            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-accent-maroon inline-block">
+            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-900 inline-block">
               Personal Branding
             </span>
             .
@@ -502,9 +510,9 @@ function ServicesSection() {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className={`group relative flex flex-col justify-between rounded-3xl border bg-white/95 p-6 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-maroon/40 hover:ring-2 hover:ring-accent-maroon/10 hover:shadow-[0_16px_36px_-8px_rgba(92,18,32,0.1)] ${
+              className={`group relative flex flex-col justify-between rounded-3xl border bg-white/95 p-6 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-purple-300/80 hover:ring-2 hover:ring-purple-500/10 hover:shadow-[0_16px_36px_-8px_rgba(76,29,149,0.08)] ${
                 service.popular
-                  ? "border-accent-maroon/30 ring-1 ring-accent-maroon/15 shadow-[0_4px_20px_-4px_rgba(92,18,32,0.07)]"
+                  ? "border-purple-200/90 ring-1 ring-purple-500/10 shadow-[0_4px_20px_-4px_rgba(76,29,149,0.06)]"
                   : "border-stone-200/90"
               }`}
             >
@@ -524,17 +532,19 @@ function ServicesSection() {
                     {service.badge}
                   </span>
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent-maroon/20 bg-accent-maroon/5 text-accent-maroon transition-transform duration-300 group-hover:scale-110 group-hover:bg-accent-maroon group-hover:text-white shadow-2xs">
+                  <div
+                    className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBgColor} ${service.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:bg-dark-bg group-hover:text-white group-hover:border-dark-bg shadow-2xs`}
+                  >
                     {service.icon}
                   </div>
                 </div>
 
                 {/* Title & Subtitle */}
                 <div className="mt-5">
-                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-neutral-900 group-hover:text-accent-maroon transition-colors">
+                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-neutral-900 group-hover:text-purple-900 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-1 text-xs sm:text-[13px] font-medium text-accent-maroon/90 leading-snug">
+                  <p className="mt-1 text-xs sm:text-[13px] font-normal text-neutral-500 leading-snug">
                     {service.subtitle}
                   </p>
                 </div>
