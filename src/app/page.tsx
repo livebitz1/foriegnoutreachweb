@@ -584,31 +584,6 @@ function TestimonialsSection() {
             Real feedback from founders, store owners, and agencies who launched and scaled their web apps with us.
           </p>
 
-          {/* Aggregate Trust Pill Metrics */}
-          <div className="mt-5 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-neutral-800">
-            <div className="flex items-center gap-1.5 rounded-full border border-neutral-300/80 bg-white/95 px-3 py-1.5 sm:px-3.5 shadow-sm backdrop-blur-sm">
-              <div className="flex text-amber-500 shrink-0">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={12} className="sm:w-[13px] sm:h-[13px]" fill="currentColor" />
-                ))}
-              </div>
-              <span className="font-bold text-neutral-900">4.9/5</span>
-              <span className="text-neutral-500 text-[11px] sm:text-xs">Rating</span>
-            </div>
-
-            <div className="flex items-center gap-1.5 rounded-full border border-neutral-300/80 bg-white/95 px-3 py-1.5 sm:px-3.5 shadow-sm backdrop-blur-sm">
-              <ShieldCheck size={14} className="text-teal-600 shrink-0 sm:w-[15px] sm:h-[15px]" />
-              <span className="font-bold text-neutral-900">100%</span>
-              <span className="text-neutral-500 text-[11px] sm:text-xs">Verified</span>
-            </div>
-
-            <div className="flex items-center gap-1.5 rounded-full border border-neutral-300/80 bg-white/95 px-3 py-1.5 sm:px-3.5 shadow-sm backdrop-blur-sm">
-              <TrendingUp size={14} className="text-accent-maroon shrink-0 sm:w-[15px] sm:h-[15px]" />
-              <span className="font-bold text-neutral-900">3.4x</span>
-              <span className="text-neutral-500 text-[11px] sm:text-xs">Avg. Lift</span>
-            </div>
-          </div>
-
           {/* Category Filter Tabs with responsive mobile container */}
           <div className="mt-6 sm:mt-10 w-full flex justify-center px-2">
             <div className="inline-flex items-center gap-1 p-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 backdrop-blur-sm">
@@ -665,26 +640,10 @@ function TestimonialsSection() {
         {/* Bottom Social Proof & CTA Banner */}
         <div className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-purple-300/30 bg-gradient-to-r from-dark-bg via-[#260a48] to-dark-bg p-6 sm:p-8 md:p-10 shadow-xl text-white">
           <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 md:flex-row text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start gap-3 w-full md:w-auto">
-              <div className="flex items-center justify-center md:justify-start -space-x-2">
-                {[
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
-                ].map((avatar, idx) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={idx}
-                    src={avatar}
-                    alt=""
-                    className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-2 border-dark-bg object-cover shadow"
-                  />
-                ))}
-                <div className="flex h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 items-center justify-center rounded-full border-2 border-dark-bg bg-accent-maroon text-[10px] sm:text-[11px] font-bold text-white shadow">
-                  +35
-                </div>
+            <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-auto">
+              <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/15 border border-purple-400/20 px-3 py-1 text-xs font-semibold text-purple-200">
+                <Sparkles size={13} className="text-purple-300 shrink-0" />
+                <span>Production-Ready Web Apps</span>
               </div>
 
               <div>
