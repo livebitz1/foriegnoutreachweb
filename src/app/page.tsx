@@ -405,7 +405,6 @@ interface ServiceItem {
   tagColor: string;
   iconColor: string;
   iconBgColor: string;
-  popular?: boolean;
 }
 
 const servicesData: ServiceItem[] = [
@@ -429,7 +428,6 @@ const servicesData: ServiceItem[] = [
     tagColor: "border-purple-200/90 bg-purple-50 text-purple-900",
     iconColor: "text-purple-700",
     iconBgColor: "border-purple-200/80 bg-purple-50/80",
-    popular: true,
   },
   {
     id: "webapps",
@@ -510,19 +508,8 @@ function ServicesSection() {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className={`group relative flex flex-col justify-between rounded-3xl border bg-white/95 p-6 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-purple-300/80 hover:ring-2 hover:ring-purple-500/10 hover:shadow-[0_16px_36px_-8px_rgba(76,29,149,0.08)] ${
-                service.popular
-                  ? "border-purple-200/90 ring-1 ring-purple-500/10 shadow-[0_4px_20px_-4px_rgba(76,29,149,0.06)]"
-                  : "border-stone-200/90"
-              }`}
+              className="group relative flex flex-col justify-between rounded-3xl border border-stone-200/90 bg-white/95 p-6 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-purple-300/80 hover:ring-2 hover:ring-purple-500/10 hover:shadow-[0_16px_36px_-8px_rgba(76,29,149,0.08)]"
             >
-              {service.popular && (
-                <div className="absolute -top-3.5 right-6 inline-flex items-center gap-1 rounded-full bg-dark-bg px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-purple-200 shadow-md border border-purple-400/20">
-                  <Sparkles size={10} className="text-teal-400" />
-                  <span>Most Requested</span>
-                </div>
-              )}
-
               <div>
                 {/* Top Badge & Icon */}
                 <div className="flex items-center justify-between gap-2">
