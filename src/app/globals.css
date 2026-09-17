@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -19,8 +18,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
-  --font-display: "Anton", Impact, sans-serif;
-  --font-script: "Caveat", cursive;
+  --font-display: var(--font-display), "Anton", Impact, sans-serif;
+  --font-script: var(--font-script), "Caveat", cursive;
 
   --color-dark-bg: var(--color-dark-bg);
   --color-dark-bg-glow: var(--color-dark-bg-glow);
@@ -28,14 +27,6 @@
   --color-accent-purple: var(--color-accent-purple);
   --color-light-bg: var(--color-light-bg);
   --color-cream-button: var(--color-cream-button);
-}
-
-.font-display {
-  font-family: "Anton", Impact, -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
-
-.font-script {
-  font-family: "Caveat", cursive !important;
 }
 
 body {
