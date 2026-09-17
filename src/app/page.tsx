@@ -417,18 +417,16 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: "ai-videos",
-    badge: "01 AI Video Production",
+    badge: "01 AI Video Ads",
     title: "AI Videos & Commercials",
-    subtitle: "Viral short form reels, UGC & cinematic AI ads.",
+    subtitle: "Viral reels & cinematic AI ads.",
     description:
-      "We produce high converting AI video ads, product commercial reels, dynamic motion visuals, and automated video pipelines engineered to maximize audience retention and ad ROAS.",
-    icon: <Video size={22} />,
+      "High retention AI video ads, product commercial reels, and dynamic motion visuals engineered to maximize engagement and ad ROAS.",
+    icon: <Video size={20} />,
     capabilities: [
-      "Cinematic AI Video Generation & Editing",
-      "High Retention TikTok & Reels Commercials",
-      "Product Video Walkthroughs & Motion Ads",
-      "AI Scriptwriting, Voiceovers & Sound Design",
-      "Multi Platform Formats (9:16, 1:1, 16:9)",
+      "Cinematic AI Video Ads & Editing",
+      "Viral TikTok & 9:16 Reels Commercials",
+      "AI Scriptwriting, Voiceovers & Audio",
     ],
     ctaLabel: "Order AI Videos",
     inquirySubject: "AI%20Video%20Production%20Inquiry",
@@ -440,16 +438,14 @@ const servicesData: ServiceItem[] = [
     id: "banners",
     badge: "02 Visual Creatives",
     title: "Commercial Banners & Design",
-    subtitle: "High CTR ad banners, posters & campaign visuals.",
+    subtitle: "High CTR ad banners & posters.",
     description:
-      "Eye catching commercial banners, promotional posters, display ad suites, and bespoke visual identity assets designed to stop the scroll and dramatically boost conversion rates.",
-    icon: <Palette size={22} />,
+      "Scroll stopping promotional banners, display ad suites, and bespoke visual identity assets designed to boost conversion rates.",
+    icon: <Palette size={20} />,
     capabilities: [
       "Multi Size Display & Social Ad Banners",
-      "High Converting Promotional Posters",
-      "Brand Identity & Visual Asset Packs",
-      "CTR Optimized Creatives for Ad Campaigns",
-      "Ultra HD Print & Digital Deliverables",
+      "High Converting Campaign Posters",
+      "CTR Optimized Visual Asset Packs",
     ],
     ctaLabel: "Get Ad Creatives",
     inquirySubject: "Ad%20Banners%20Creative%20Inquiry",
@@ -461,16 +457,14 @@ const servicesData: ServiceItem[] = [
     id: "webapps",
     badge: "03 Web Engineering",
     title: "Custom Web Apps & Websites",
-    subtitle: "Next.js App Router, ultra fast speeds & dashboards.",
+    subtitle: "Next.js speeds & dashboards.",
     description:
-      "Full stack custom web applications and high converting marketing websites engineered with modern Next.js for sub second load times, real time dashboards, and interactive experiences.",
-    icon: <Code2 size={22} />,
+      "Full stack custom web applications and marketing websites engineered for sub second speeds, real time dashboards, and conversions.",
+    icon: <Code2 size={20} />,
     capabilities: [
       "Modern Next.js & React 19 Architecture",
-      "Real Time Analytics & Admin Dashboards",
-      "High Converting Websites & Landing Pages",
-      "Edge Optimization & Sub Second Load Times",
-      "Responsive Cross Device User Experience",
+      "Real Time Analytics & Dashboards",
+      "Sub Second Speeds & Edge Optimization",
     ],
     ctaLabel: "Build your Website",
     inquirySubject: "Web%20Application%20Project",
@@ -482,16 +476,14 @@ const servicesData: ServiceItem[] = [
     id: "saas",
     badge: "04 Cloud Platforms",
     title: "SaaS Development & MVP",
-    subtitle: "From architecture to multi tenant production scale.",
+    subtitle: "Multi tenant cloud & Stripe billing.",
     description:
-      "We architect, engineer, and deploy robust Software as a Service platforms. Complete with Stripe subscription billing, secure role based auth, high throughput APIs, and scalable cloud infrastructure.",
-    icon: <Layers size={22} />,
+      "Production ready Software as a Service platforms complete with Stripe subscription billing, secure auth, and scalable cloud APIs.",
+    icon: <Layers size={20} />,
     capabilities: [
-      "Multi Tenant Cloud Architecture & Scalable APIs",
-      "Stripe & Subscription Billing Integration",
-      "Secure Auth & Role Based Access Control",
-      "PostgreSQL & High Throughput Data Pipelines",
-      "Automated CI/CD & Production Cloud Scaling",
+      "Multi Tenant Cloud & Scalable APIs",
+      "Stripe Subscription Billing Integration",
+      "Secure Auth & Automated CI/CD Scaling",
     ],
     ctaLabel: "Start your SaaS",
     inquirySubject: "SaaS%20Development%20Project",
@@ -505,7 +497,7 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
     >
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
@@ -519,7 +511,7 @@ function ServicesSection() {
             <span>Our Core Capabilities</span>
           </div>
 
-          <h2 className="mt-3.5 sm:mt-5 max-w-4xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
+          <h2 className="mt-3.5 sm:mt-4 max-w-4xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
             AI Videos, Banners,{" "}
             <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
               Web Apps &amp; SaaS
@@ -527,58 +519,55 @@ function ServicesSection() {
             .
           </h2>
 
-          <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
+          <p className="mt-2 sm:mt-3 max-w-2xl text-xs sm:text-base text-white/70 leading-relaxed px-2">
             End to end creative production and full stack engineering designed to scale your brand, capture attention, and drive revenue.
           </p>
         </div>
 
         {/* 4-Column Services Grid (1 col mobile, 2 cols tablet, 4 cols desktop) */}
-        <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-5 lg:gap-6">
+        <div className="mt-10 sm:mt-12 md:mt-14 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-7 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
+              className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-5.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)] hover:-translate-y-1"
             >
               <div>
                 {/* Top Badge & Icon */}
                 <div className="flex items-center justify-between gap-2">
                   <span
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider ${service.tagColor}`}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[10px] sm:text-[10.5px] font-semibold uppercase tracking-wider ${service.tagColor}`}
                   >
                     {service.badge}
                   </span>
 
                   <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBgColor} ${service.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:bg-purple-600/30 group-hover:text-white group-hover:border-purple-400/50 shadow-inner`}
+                    className={`flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border ${service.iconBgColor} ${service.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:bg-purple-600/30 group-hover:text-white group-hover:border-purple-400/50 shadow-inner shrink-0`}
                   >
                     {service.icon}
                   </div>
                 </div>
 
-                {/* Title & Subtitle */}
-                <div className="mt-5">
-                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-white group-hover:text-purple-200 transition-colors">
+                {/* Title */}
+                <div className="mt-3.5 sm:mt-4">
+                  <h3 className="font-display text-lg sm:text-xl font-normal tracking-tight text-white group-hover:text-purple-200 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-1 text-xs sm:text-[13px] font-normal text-purple-200/70 leading-snug">
-                    {service.subtitle}
-                  </p>
                 </div>
 
                 {/* Description */}
-                <p className="mt-3.5 text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+                <p className="mt-2 text-xs text-white/70 leading-relaxed font-normal">
                   {service.description}
                 </p>
 
-                {/* Capability Checklist */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex flex-col gap-2.5">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+                {/* Capability Checklist (Compact 3-item list) */}
+                <div className="mt-4 pt-3.5 border-t border-white/10 flex flex-col gap-2">
+                  <span className="text-[9.5px] font-semibold uppercase tracking-wider text-white/40">
                     What&apos;s Included
                   </span>
                   {service.capabilities.map((cap) => (
-                    <div key={cap} className="flex items-start gap-2 text-xs sm:text-[13px] text-white/85">
+                    <div key={cap} className="flex items-start gap-1.5 text-xs text-white/85">
                       <CheckCircle2
-                        size={15}
+                        size={14}
                         className="text-teal-400 shrink-0 mt-0.5"
                       />
                       <span className="leading-snug">{cap}</span>
@@ -588,14 +577,14 @@ function ServicesSection() {
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 pt-4 border-t border-white/10">
+              <div className="mt-5 pt-3.5 border-t border-white/10">
                 <a
                   href={`mailto:hello@algrowmedia.com?subject=${service.inquirySubject}`}
-                  className="group/btn inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-cream-button px-5 py-2.5 text-xs sm:text-sm font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-md shadow-purple-950/40"
+                  className="group/btn inline-flex min-h-[38px] sm:min-h-[40px] w-full items-center justify-center gap-1.5 rounded-full bg-cream-button px-4 py-2 text-xs sm:text-[13px] font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-md shadow-purple-950/40"
                 >
                   <span>{service.ctaLabel}</span>
                   <ArrowUpRight
-                    size={14}
+                    size={13}
                     className="transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
                   />
                 </a>
