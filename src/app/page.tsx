@@ -425,9 +425,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Start your SaaS",
     inquirySubject: "SaaS%20Development%20Project",
-    tagColor: "border-purple-200/90 bg-purple-50 text-purple-900",
-    iconColor: "text-purple-700",
-    iconBgColor: "border-purple-200/80 bg-purple-50/80",
+    tagColor: "border-purple-400/30 bg-purple-500/15 text-purple-200",
+    iconColor: "text-purple-300",
+    iconBgColor: "border-purple-400/30 bg-purple-500/15",
   },
   {
     id: "webapps",
@@ -446,9 +446,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Build your Web App",
     inquirySubject: "Web%20Application%20Project",
-    tagColor: "border-teal-200/90 bg-teal-50 text-teal-900",
-    iconColor: "text-teal-700",
-    iconBgColor: "border-teal-200/80 bg-teal-50/80",
+    tagColor: "border-teal-400/30 bg-teal-500/15 text-teal-200",
+    iconColor: "text-teal-300",
+    iconBgColor: "border-teal-400/30 bg-teal-500/15",
   },
   {
     id: "personal-branding",
@@ -467,9 +467,9 @@ const servicesData: ServiceItem[] = [
     ],
     ctaLabel: "Scale your Personal Brand",
     inquirySubject: "Personal%20Branding%20Inquiry",
-    tagColor: "border-amber-200/90 bg-amber-50 text-amber-950",
-    iconColor: "text-amber-700",
-    iconBgColor: "border-amber-200/80 bg-amber-50/80",
+    tagColor: "border-amber-400/30 bg-amber-500/15 text-amber-200",
+    iconColor: "text-amber-300",
+    iconBgColor: "border-amber-400/30 bg-amber-500/15",
   },
 ];
 
@@ -477,28 +477,29 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-light-bg py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-100/80 overflow-hidden"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
     >
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-40 left-1/3 w-[300px] sm:w-[600px] md:w-[700px] h-[350px] bg-gradient-to-b from-purple-900/10 via-purple-500/5 to-transparent blur-3xl opacity-60" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-0 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-200/80 bg-purple-50/80 px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-900 shadow-xs">
-            <Sparkles size={13} className="text-purple-700 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
+            <Sparkles size={13} className="text-purple-300 shrink-0" />
             <span>Our Core Capabilities</span>
           </div>
 
-          <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-neutral-900">
+          <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
             SaaS, Web Apps &amp;{" "}
-            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-900 inline-block">
+            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
               Personal Branding
             </span>
             .
           </h2>
 
-          <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed px-2">
+          <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
             End to end technical engineering and brand authority services designed to scale your business, convert visitors, and establish market dominance.
           </p>
         </div>
@@ -508,7 +509,7 @@ function ServicesSection() {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="group relative flex flex-col justify-between rounded-3xl border border-stone-200/90 bg-white/95 p-6 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-purple-300/80 hover:ring-2 hover:ring-purple-500/10 hover:shadow-[0_16px_36px_-8px_rgba(76,29,149,0.08)]"
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-7 md:p-8 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
             >
               <div>
                 {/* Top Badge & Icon */}
@@ -520,7 +521,7 @@ function ServicesSection() {
                   </span>
 
                   <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBgColor} ${service.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:bg-dark-bg group-hover:text-white group-hover:border-dark-bg shadow-2xs`}
+                    className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBgColor} ${service.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:bg-purple-600/30 group-hover:text-white group-hover:border-purple-400/50 shadow-inner`}
                   >
                     {service.icon}
                   </div>
@@ -528,29 +529,29 @@ function ServicesSection() {
 
                 {/* Title & Subtitle */}
                 <div className="mt-5">
-                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-neutral-900 group-hover:text-purple-900 transition-colors">
+                  <h3 className="font-display text-xl sm:text-2xl font-normal tracking-tight text-white group-hover:text-purple-200 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-1 text-xs sm:text-[13px] font-normal text-neutral-500 leading-snug">
+                  <p className="mt-1 text-xs sm:text-[13px] font-normal text-purple-200/70 leading-snug">
                     {service.subtitle}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="mt-3.5 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                <p className="mt-3.5 text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
                   {service.description}
                 </p>
 
                 {/* Capability Checklist */}
-                <div className="mt-6 pt-5 border-t border-stone-100 flex flex-col gap-2.5">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                <div className="mt-6 pt-5 border-t border-white/10 flex flex-col gap-2.5">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
                     What&apos;s Included
                   </span>
                   {service.capabilities.map((cap) => (
-                    <div key={cap} className="flex items-start gap-2 text-xs sm:text-[13px] text-neutral-700">
+                    <div key={cap} className="flex items-start gap-2 text-xs sm:text-[13px] text-white/85">
                       <CheckCircle2
                         size={15}
-                        className="text-teal-600 fill-teal-50 shrink-0 mt-0.5"
+                        className="text-teal-400 shrink-0 mt-0.5"
                       />
                       <span className="leading-snug">{cap}</span>
                     </div>
@@ -559,10 +560,10 @@ function ServicesSection() {
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 pt-4 border-t border-stone-100">
+              <div className="mt-8 pt-4 border-t border-white/10">
                 <a
                   href={`mailto:hello@algrowmedia.com?subject=${service.inquirySubject}`}
-                  className="group/btn inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-stone-100 px-5 py-2.5 text-xs sm:text-sm font-semibold text-neutral-800 transition-all duration-200 hover:bg-dark-bg hover:text-white hover:scale-[1.02] shadow-2xs"
+                  className="group/btn inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-cream-button px-5 py-2.5 text-xs sm:text-sm font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-md shadow-purple-950/40"
                 >
                   <span>{service.ctaLabel}</span>
                   <ArrowUpRight
