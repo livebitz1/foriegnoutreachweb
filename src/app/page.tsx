@@ -312,10 +312,11 @@ function useHeroScrollCard(
   const xSpread = (index - LEAD_INDEX) * GATHER_STEP_PX * layoutScale;
   const mobileYShift = isMobile ? MOBILE_COLLAGE_Y_SHIFT * layoutScale : 0;
   const mobileXRecenter = isMobile ? MOBILE_COLLAGE_X_RECENTER : 0;
+  const mobileHeroYShift = isMobile ? -42 : 0;
 
   const mergeX = (EXPLODE_TARGETS[LEAD_INDEX].dx - mobileXRecenter) * layoutScale;
   const mergeY = EXPLODE_TARGETS[LEAD_INDEX].dy * layoutScale + mobileYShift;
-  const leadArcY = LEAD_ARC_Y * layoutScale;
+  const leadArcY = LEAD_ARC_Y * layoutScale + mobileHeroYShift;
 
   const finalX =
     ((role === "dropped" ? EXPLODE_TARGETS[LEAD_INDEX].dx : target.dx) - mobileXRecenter) *
@@ -345,7 +346,7 @@ function useHeroScrollCard(
     ? 0
     : restingRotate + GATHER_EASE_IN * (0 - restingRotate);
   const gatherXAt15 = isCenter ? 0 : xSpread + GATHER_EASE_IN * (0 - xSpread);
-  const scaledRestingY = restingY * layoutScale;
+  const scaledRestingY = restingY * layoutScale + mobileHeroYShift;
   const gatherYAt15 = scaledRestingY + GATHER_EASE_IN * (leadArcY - scaledRestingY);
 
   const rotate = useTransform(
@@ -1518,13 +1519,14 @@ export default function Home() {
     scale: number,
     zIndexBase: number
   ): CardMotionAttrs {
+    const mobileHeroYShift = isMobile ? -42 : 0;
     const restingRotate = isCenter ? 0 : card.rotate;
-    const restingY = card.y;
+    const restingY = card.y + mobileHeroYShift;
 
     if (isCenter && phase === "lead") {
       return {
-        initial: leadHiddenState,
-        animate: { opacity: 1, y: 0, rotate: 0, scale },
+        initial: { ...leadHiddenState, y: 180 + mobileHeroYShift },
+        animate: { opacity: 1, y: mobileHeroYShift, rotate: 0, scale },
         transition: {
           default: { duration: 1.6, ease: EASE_OUT },
           rotate: { duration: 2, ease: EASE_OUT },
@@ -1552,7 +1554,7 @@ export default function Home() {
         variants: otherCardVariants,
         initial: "hidden",
         animate: phase === "settle" ? "show" : "hidden",
-        custom: { y: card.y, rotate: card.rotate, initialRotate, scale, delay },
+        custom: { y: restingY, rotate: card.rotate, initialRotate, scale, delay },
         style: { zIndex: zIndexBase },
       };
     }
@@ -1774,7 +1776,7 @@ export default function Home() {
             {/* Hero CTA & Trust Badges - Dissolves sleekly downwards on scroll */}
             {heroTextVisible && (
               <motion.div
-                className="absolute inset-x-0 bottom-2 sm:bottom-4 md:bottom-4 lg:bottom-6 z-20 px-4 text-center"
+                className="absolute inset-x-0 bottom-8 sm:bottom-4 md:bottom-4 lg:bottom-6 z-20 px-4 text-center"
                 style={{
                   opacity: heroCtaOpacity,
                   y: heroCtaY,
