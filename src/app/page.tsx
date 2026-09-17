@@ -1764,9 +1764,9 @@ export default function Home() {
                 }}
               >
                 <h1 className="mx-auto max-w-4xl font-display text-[34px] sm:text-[42px] md:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-white">
-                  AI Videos, Ad Banners,
+                  We scale your business 10x.
                   <br />
-                  Web Apps &amp; Scalable SaaS.
+                  Turn your story into authority.
                 </h1>
               </motion.div>
             )}
