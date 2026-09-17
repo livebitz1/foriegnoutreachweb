@@ -891,27 +891,31 @@ const teamMembers: TeamMember[] = [
 
 function TeamSection() {
   return (
-    <section id="team" className="relative w-full bg-light-bg py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-100/80 overflow-hidden">
+    <section
+      id="team"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
+    >
       {/* Ambient background lighting */}
-      <div className="pointer-events-none absolute -top-40 right-1/4 w-[400px] sm:w-[600px] h-[350px] bg-gradient-to-b from-accent-maroon/15 via-purple-500/5 to-transparent blur-3xl opacity-60" />
+      <div className="pointer-events-none absolute -top-40 right-1/4 w-[400px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-0 left-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-accent-maroon/20 bg-accent-maroon/5 px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent-maroon shadow-sm">
-            <Users size={13} className="text-accent-maroon shrink-0" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
+            <Users size={13} className="text-purple-300 shrink-0" />
             <span>Engineering &amp; Product Leadership</span>
           </div>
 
-          <h2 className="mt-4 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-neutral-900">
+          <h2 className="mt-4 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
             Crafted by engineers, for{" "}
-            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-accent-maroon inline-block">
+            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
               founders
             </span>
             .
           </h2>
 
-          <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed px-2">
+          <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
             No junior handoffs or bloated agency overhead. You collaborate directly with senior technical architects and product designers dedicated to shipping your SaaS.
           </p>
         </div>
@@ -921,11 +925,11 @@ function TeamSection() {
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-stone-200/90 bg-white/95 p-4 sm:p-5 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-maroon/35 hover:ring-2 hover:ring-accent-maroon/10 hover:shadow-[0_16px_36px_-8px_rgba(92,18,32,0.1)]"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
             >
               {/* Member Portrait Image Container */}
               <div>
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-stone-100 shadow-inner">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-white/5 shadow-inner border border-white/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={member.image}
@@ -933,12 +937,12 @@ function TeamSection() {
                     className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Soft bottom vignette overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
 
                   {/* Floating role pill badge on bottom of image */}
                   <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-white/95 border border-white/20 shadow-sm">
-                      <Sparkles size={11} className="text-amber-300 shrink-0" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-purple-200 border border-purple-400/30 shadow-sm">
+                      <Zap size={11} className="text-purple-300 fill-purple-300/30 shrink-0" />
                       {member.role}
                     </span>
                   </div>
@@ -947,12 +951,12 @@ function TeamSection() {
                 {/* Info & Bio */}
                 <div className="mt-4 sm:mt-5 px-1">
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 transition-colors duration-200 group-hover:text-accent-maroon">
+                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white transition-colors duration-200 group-hover:text-purple-200">
                       {member.name}
                     </h3>
                   </div>
 
-                  <p className="mt-2.5 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                  <p className="mt-2.5 text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
                     {member.bio}
                   </p>
 
@@ -961,7 +965,7 @@ function TeamSection() {
                     {member.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-stone-100/90 px-2.5 py-1 text-[10px] sm:text-[11px] font-medium text-neutral-600 border border-stone-200/60"
+                        className="rounded-full bg-purple-500/15 px-2.5 py-1 text-[10px] sm:text-[11px] font-medium text-purple-200 border border-purple-400/30"
                       >
                         {tag}
                       </span>
@@ -971,8 +975,8 @@ function TeamSection() {
               </div>
 
               {/* Social / Contact Links Footer */}
-              <div className="mt-6 flex items-center justify-between border-t border-stone-100 pt-4 px-1">
-                <span className="text-[11px] font-medium uppercase tracking-wider text-neutral-400">
+              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 px-1">
+                <span className="text-[11px] font-medium uppercase tracking-wider text-white/40">
                   Connect
                 </span>
 
@@ -980,7 +984,7 @@ function TeamSection() {
                   <a
                     href={member.linkedin}
                     aria-label={`${member.name} LinkedIn`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-500 transition-all duration-200 hover:bg-accent-maroon hover:text-white hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
                   >
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
@@ -989,7 +993,7 @@ function TeamSection() {
                   <a
                     href={member.twitter}
                     aria-label={`${member.name} X / Twitter`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-500 transition-all duration-200 hover:bg-accent-maroon hover:text-white hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -998,7 +1002,7 @@ function TeamSection() {
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email ${member.name}`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-500 transition-all duration-200 hover:bg-accent-maroon hover:text-white hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
                   >
                     <Mail size={13} />
                   </a>
