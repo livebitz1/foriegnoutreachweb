@@ -647,7 +647,7 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
   return (
     <div
       key={item.id}
-      className="group relative flex w-[320px] sm:w-[380px] md:w-[420px] flex-col justify-between rounded-2xl sm:rounded-3xl border border-stone-200/90 bg-white/95 p-5 sm:p-7 md:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:border-accent-purple/40 hover:ring-2 hover:ring-accent-purple/10 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.09)]"
+      className="group relative flex w-[320px] sm:w-[380px] md:w-[420px] flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-7 md:p-8 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
     >
       <div>
         {/* Top Bar: Stars + Category Badge */}
@@ -658,44 +658,44 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
               <Star
                 key={i}
                 size={14}
-                className="fill-amber-400 text-amber-400 sm:w-4 sm:h-4"
+                className="fill-amber-400 text-amber-400 sm:w-4 sm:h-4 drop-shadow-[0_0_6px_rgba(251,191,36,0.35)]"
               />
             ))}
           </div>
 
           {/* Category Pill */}
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-accent-maroon border border-purple-200/70 shrink-0">
-            <Sparkles size={11} className="text-accent-maroon shrink-0" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-purple-500/15 border border-purple-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-purple-200 shrink-0">
+            <Zap size={11} className="text-purple-300 fill-purple-300/30 shrink-0" />
             <span>{item.categoryLabel}</span>
           </div>
         </div>
 
         {/* Quote Content */}
         <div className="mt-4 sm:mt-5">
-          <p className="font-normal text-neutral-800 leading-relaxed tracking-[-0.01em] transition-colors duration-200 group-hover:text-neutral-950 text-[14px] sm:text-[15.5px] md:text-base">
+          <p className="font-normal text-white/90 leading-relaxed tracking-[-0.01em] transition-colors duration-200 group-hover:text-white text-[14px] sm:text-[15.5px] md:text-base">
             &ldquo;{item.quote}&rdquo;
           </p>
         </div>
       </div>
 
       {/* Author Card Footer */}
-      <div className="mt-5 sm:mt-7 flex items-center justify-between border-t border-stone-100 pt-3.5 sm:pt-4 gap-3">
+      <div className="mt-5 sm:mt-7 flex items-center justify-between border-t border-white/10 pt-3.5 sm:pt-4 gap-3">
         <div className="flex flex-col min-w-0 flex-1">
           <div className="flex items-center gap-1.5">
-            <span className="text-sm sm:text-base font-bold text-neutral-900 tracking-tight truncate">
+            <span className="text-sm sm:text-base font-bold text-white tracking-tight truncate">
               {item.author}
             </span>
             <CheckCircle2
               size={14}
-              className="text-teal-600 fill-teal-50 shrink-0"
+              className="text-teal-400 shrink-0"
             />
           </div>
-          <span className="text-xs sm:text-[13px] text-neutral-500 font-normal leading-tight mt-0.5 truncate">
-            Store: <strong className="font-semibold text-neutral-800">{item.company}</strong>
+          <span className="text-xs sm:text-[13px] text-white/50 font-normal leading-tight mt-0.5 truncate">
+            Store: <strong className="font-semibold text-purple-200">{item.company}</strong>
           </span>
         </div>
 
-        <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-stone-100/90 text-neutral-400 transition-all duration-200 group-hover:bg-accent-maroon group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 shadow-2xs">
+        <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 shadow-2xs">
           <ArrowUpRight size={13} className="sm:w-3.5 sm:h-3.5" />
         </div>
       </div>
@@ -716,33 +716,37 @@ function TestimonialsSection() {
   const secondRow = useMemo(() => [...filteredTestimonials].reverse(), [filteredTestimonials]);
 
   return (
-    <section id="testimonials" className="relative w-full bg-light-bg py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 overflow-hidden">
-      {/* Subtle ambient gradient decor */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] md:w-[800px] h-[350px] bg-gradient-to-b from-accent-maroon/15 via-purple-500/5 to-transparent blur-3xl opacity-60" />
+    <section
+      id="testimonials"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 overflow-hidden text-white border-t border-purple-900/40"
+    >
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-0 left-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-accent-maroon/20 bg-accent-maroon/5 px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent-maroon shadow-sm">
-            <Sparkles size={13} className="text-accent-maroon shrink-0" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
+            <Zap size={13} className="text-purple-300 fill-purple-300/30 shrink-0" />
             <span>Proven Client Results</span>
           </div>
 
-          <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-neutral-900">
+          <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
             Software that turns vision into{" "}
-            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-accent-maroon inline-block">
+            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
               revenue
             </span>
             .
           </h2>
 
-          <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed px-2">
+          <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
             Real feedback from founders, store owners, and agencies who launched and scaled their web apps with us.
           </p>
 
           {/* Category Filter Tabs with responsive mobile container */}
           <div className="mt-6 sm:mt-10 w-full flex justify-center px-2">
-            <div className="inline-flex items-center gap-1 p-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md">
               {testimonialCategories.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
@@ -753,13 +757,13 @@ function TestimonialsSection() {
                     className={`relative min-h-[34px] sm:min-h-[38px] px-3 sm:px-5 py-1 text-xs sm:text-sm font-medium rounded-full whitespace-nowrap transition-colors duration-200 ${
                       isActive
                         ? "text-white"
-                        : "text-neutral-600 hover:text-neutral-900"
+                        : "text-white/60 hover:text-white"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeTestimonialTab"
-                        className="absolute inset-0 rounded-full bg-dark-bg shadow-sm"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 shadow-md border border-purple-400/30"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -775,8 +779,8 @@ function TestimonialsSection() {
         {/* Continuous Infinite Scrolling Testimonials Marquee */}
         <div className="relative mt-8 sm:mt-14 w-full overflow-hidden flex flex-col gap-4 sm:gap-6">
           {/* Left & Right gradient edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 md:w-48 bg-gradient-to-r from-light-bg via-light-bg/80 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 md:w-48 bg-gradient-to-l from-light-bg via-light-bg/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 md:w-48 bg-gradient-to-r from-[#0d021f] via-[#0d021f]/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 md:w-48 bg-gradient-to-l from-[#0d021f] via-[#0d021f]/80 to-transparent z-10" />
 
           {/* Top Marquee Row (Brisk 18s continuous loop) */}
           <Marquee pauseOnHover repeat={4} className="[--duration:18s] [--gap:1.25rem] py-1 sm:py-2">
@@ -794,11 +798,11 @@ function TestimonialsSection() {
         </div>
 
         {/* Bottom Social Proof & CTA Banner */}
-        <div className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-purple-300/30 bg-gradient-to-r from-dark-bg via-[#260a48] to-dark-bg p-6 sm:p-8 md:p-10 shadow-xl text-white">
+        <div className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-purple-400/30 bg-gradient-to-r from-[#17052e] via-[#2a0b50] to-[#17052e] p-6 sm:p-8 md:p-10 shadow-[0_8px_32px_-4px_rgba(124,58,237,0.3)] backdrop-blur-xl text-white">
           <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 md:flex-row text-center md:text-left">
             <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-auto">
               <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/15 border border-purple-400/20 px-3 py-1 text-xs font-semibold text-purple-200">
-                <Sparkles size={13} className="text-purple-300 shrink-0" />
+                <Zap size={13} className="text-purple-300 fill-purple-300/30 shrink-0" />
                 <span>Production Ready Web Apps</span>
               </div>
 
