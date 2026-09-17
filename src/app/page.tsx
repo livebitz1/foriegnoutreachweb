@@ -36,6 +36,10 @@ import {
   VolumeX,
   Play,
   Pause,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
 } from "lucide-react";
 import { Marquee } from "@/components/marquee";
 
@@ -876,7 +880,44 @@ const postersData = [
 
 function PostersSection() {
   const [showAll, setShowAll] = useState(false);
+  const [selectedPosterIndex, setSelectedPosterIndex] = useState<number | null>(null);
   const displayedPosters = showAll ? postersData : postersData.slice(0, 8);
+
+  const selectedPoster = selectedPosterIndex !== null ? postersData[selectedPosterIndex] : null;
+
+  // Keyboard navigation & body scroll locking
+  useEffect(() => {
+    if (selectedPosterIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedPosterIndex(null);
+      } else if (e.key === "ArrowRight") {
+        setSelectedPosterIndex((prev) => (prev !== null ? (prev + 1) % postersData.length : 0));
+      } else if (e.key === "ArrowLeft") {
+        setSelectedPosterIndex((prev) => (prev !== null ? (prev - 1 + postersData.length) % postersData.length : 0));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedPosterIndex]);
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedPosterIndex((prev) => (prev !== null ? (prev - 1 + postersData.length) % postersData.length : 0));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedPosterIndex((prev) => (prev !== null ? (prev + 1) % postersData.length : 0));
+  };
 
   return (
     <section
@@ -910,10 +951,11 @@ function PostersSection() {
 
         {/* Responsive Poster Grid */}
         <div className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-          {displayedPosters.map((poster) => (
+          {displayedPosters.map((poster, index) => (
             <div
               key={poster.id}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 sm:p-2.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.3)] hover:scale-[1.02]"
+              onClick={() => setSelectedPosterIndex(index)}
+              className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 sm:p-2.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.3)] hover:scale-[1.02]"
             >
               <div className="relative aspect-square sm:aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black/50 border border-white/10 shadow-inner">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -923,6 +965,16 @@ function PostersSection() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+
+                {/* Hover overlay with zoom hint */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/20 border border-white/30 text-white shadow-lg backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
+                    <Maximize2 size={18} />
+                  </div>
+                  <span className="mt-2 text-[11px] sm:text-xs font-semibold text-white/90 drop-shadow-md">
+                    Click to View
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -940,6 +992,114 @@ function PostersSection() {
           </div>
         )}
       </div>
+
+      {/* Lightbox / Poster Pop-up Modal */}
+      <AnimatePresence>
+        {selectedPosterIndex !== null && selectedPoster && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelectedPosterIndex(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 md:p-8"
+          >
+            {/* Modal Box */}
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative flex flex-col items-center max-w-5xl w-full max-h-[92vh]"
+            >
+              {/* Top Bar with Counter, Title and Close Button */}
+              <div className="mb-3 flex items-center justify-between w-full px-2 sm:px-4 text-white">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs sm:text-sm font-semibold text-purple-300">
+                    Creative {selectedPosterIndex + 1} of {postersData.length}
+                  </span>
+                  <span className="hidden sm:inline text-xs text-white/40">&bull;</span>
+                  <span className="hidden sm:inline text-xs text-white/70">
+                    {selectedPoster.alt}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={CAL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-cream-button px-4 py-1.5 text-xs font-semibold text-dark-bg hover:bg-purple-50 transition-all shadow-md"
+                  >
+                    <span>Book a Call</span>
+                    <ArrowUpRight size={13} />
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPosterIndex(null)}
+                    aria-label="Close poster popup"
+                    className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/10 border border-white/20 text-white/90 hover:bg-white/20 hover:scale-105 transition-all shadow-md cursor-pointer"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Main Image Display Box */}
+              <div className="relative flex items-center justify-center w-full max-h-[78vh] overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-2xl p-2 sm:p-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={selectedPoster.src}
+                  alt={selectedPoster.alt}
+                  className="max-h-[72vh] sm:max-h-[74vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+                />
+
+                {/* Left navigation arrow */}
+                {postersData.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    aria-label="Previous poster"
+                    className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/60 border border-white/25 text-white backdrop-blur-md transition-all hover:bg-white hover:text-dark-bg hover:scale-110 shadow-xl cursor-pointer"
+                  >
+                    <ChevronLeft size={22} />
+                  </button>
+                )}
+
+                {/* Right navigation arrow */}
+                {postersData.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    aria-label="Next poster"
+                    className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/60 border border-white/25 text-white backdrop-blur-md transition-all hover:bg-white hover:text-dark-bg hover:scale-110 shadow-xl cursor-pointer"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+                )}
+              </div>
+
+              {/* Mobile bottom banner */}
+              <div className="mt-3 flex sm:hidden items-center justify-between w-full px-2">
+                <span className="text-xs text-white/70 truncate mr-2">
+                  {selectedPoster.alt}
+                </span>
+                <a
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 rounded-full bg-cream-button px-3 py-1.5 text-xs font-semibold text-dark-bg shrink-0 shadow-md"
+                >
+                  <span>Book a Call</span>
+                  <ArrowUpRight size={12} />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
