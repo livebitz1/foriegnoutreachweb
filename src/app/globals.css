@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -13,7 +13,7 @@
   --color-light-bg: #f8f6fc;
   --color-cream-button: #ffffff;
 
-  --font-display: "Anton", Impact, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-geist-sans), "Geist", "Helvetica Neue", sans-serif;
   --font-script: "Caveat", cursive;
 }
 
@@ -22,7 +22,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
-  --font-display: "Anton", Impact, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-geist-sans), "Geist", "Helvetica Neue", sans-serif;
   --font-script: "Caveat", cursive;
 
   --color-dark-bg: var(--color-dark-bg);
@@ -34,7 +34,7 @@
 }
 
 .font-display {
-  font-family: "Anton", Impact, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-geist-sans), "Geist", "Helvetica Neue", sans-serif !important;
 }
 
 .font-script {
