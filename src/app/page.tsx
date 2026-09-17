@@ -39,13 +39,15 @@ import {
 } from "lucide-react";
 import { Marquee } from "@/components/marquee";
 
+const CAL_URL = "https://cal.com/ashibur777/30min";
+
 const navLinks = [
   { label: "Overview", href: "#hero" },
   { label: "Services", href: "#services" },
   { label: "AI Banners", href: "#posters" },
   { label: "AI Videos", href: "#reels" },
   { label: "Client Proof", href: "#testimonials" },
-  { label: "Contact", href: "mailto:hello@algrowmedia.com" },
+  { label: "Book a Call", href: CAL_URL },
 ];
 
 const cards = [
@@ -580,7 +582,9 @@ function ServicesSection() {
               {/* Action Button */}
               <div className="mt-5 pt-3.5 border-t border-white/10">
                 <a
-                  href={`mailto:hello@algrowmedia.com?subject=${service.inquirySubject}`}
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group/btn inline-flex min-h-[38px] sm:min-h-[40px] w-full items-center justify-center gap-1.5 rounded-full bg-cream-button px-4 py-2 text-xs sm:text-[13px] font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-md shadow-purple-950/40"
                 >
                   <span>{service.ctaLabel}</span>
@@ -835,10 +839,13 @@ function TestimonialsSection() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full md:w-auto shrink-0">
               <a
-                href="mailto:hello@algrowmedia.com?subject=Project%20Inquiry"
-                className="min-h-[44px] sm:min-h-[46px] w-full sm:w-auto rounded-full bg-cream-button px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-md text-center flex items-center justify-center"
+                href={CAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-h-[44px] sm:min-h-[46px] w-full sm:w-auto rounded-full bg-cream-button px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-md text-center flex items-center justify-center gap-1.5"
               >
-                Start Your Project
+                <span>Book a 30-min Call</span>
+                <ArrowUpRight size={15} />
               </a>
               <a
                 href="#services"
@@ -1079,8 +1086,8 @@ function ReelsSection() {
 function FooterSection() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hello@algrowmedia.com");
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(CAL_URL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -1113,29 +1120,24 @@ function FooterSection() {
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
             <a
-              href="mailto:hello@algrowmedia.com?subject=Project%20Discovery%20Inquiry"
-              className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-cream-button px-8 py-3.5 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-lg text-center"
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-cream-button px-8 py-3.5 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-lg text-center"
             >
-              Start a Project Discovery Call →
+              <span>Book a 30-min Strategy Call</span>
+              <ArrowUpRight size={16} />
             </a>
 
-            <button
-              type="button"
-              onClick={handleCopyEmail}
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs sm:text-sm font-medium text-white/90 hover:bg-white/10 hover:border-white/35 transition-all text-center"
             >
-              {copied ? (
-                <>
-                  <Check size={14} className="text-teal-400" />
-                  <span>Email Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={14} className="text-white/60" />
-                  <span>hello@algrowmedia.com</span>
-                </>
-              )}
-            </button>
+              <span>cal.com/ashibur777/30min</span>
+              <ArrowUpRight size={14} className="text-white/60" />
+            </a>
           </div>
         </div>
 
@@ -1180,11 +1182,12 @@ function FooterSection() {
                 { label: "AI Banners", href: "#posters" },
                 { label: "AI Videos", href: "#reels" },
                 { label: "Client Proof", href: "#testimonials" },
-                { label: "Start a Project", href: "mailto:hello@algrowmedia.com" },
+                { label: "Book a 30-min Call", href: CAL_URL, external: true },
               ].map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
+                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="transition-colors duration-200 hover:text-white hover:translate-x-0.5 inline-block"
                   >
                     {item.label}
@@ -1194,32 +1197,35 @@ function FooterSection() {
             </ul>
           </div>
 
-          {/* Col 3: Direct Contact */}
+          {/* Col 3: Direct Scheduling / Contact */}
           <div className="flex flex-col gap-3 lg:col-span-4">
             <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              Get in Touch
+              Connect With Us
             </span>
             <ul className="mt-1 flex flex-col gap-2.5 text-xs sm:text-sm text-white/60">
               <li>
                 <a
-                  href="mailto:hello@algrowmedia.com?subject=New%20Project%20Inquiry"
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group/chan flex flex-col transition-colors duration-200 hover:text-white"
                 >
                   <span className="text-[11px] uppercase tracking-wider text-white/40 group-hover/chan:text-teal-400">
-                    Project Inquiries &amp; Discovery
+                    Direct Video Discovery Call
                   </span>
-                  <span className="text-sm font-medium text-white/90 group-hover/chan:text-white">
-                    hello@algrowmedia.com
+                  <span className="text-sm font-medium text-white/90 group-hover/chan:text-white flex items-center gap-1.5">
+                    cal.com/ashibur777/30min
+                    <ArrowUpRight size={13} className="text-white/50 transition-transform group-hover/chan:translate-x-0.5 group-hover/chan:-translate-y-0.5" />
                   </span>
                 </a>
               </li>
               <li>
                 <div className="flex flex-col">
                   <span className="text-[11px] uppercase tracking-wider text-white/40">
-                    Response Commitment
+                    Schedule Length
                   </span>
                   <span className="text-xs text-white/70">
-                    Replies within 24 hours
+                    30-Minute 1-on-1 Consultation
                   </span>
                 </div>
               </li>
@@ -1233,10 +1239,12 @@ function FooterSection() {
 
           <div className="flex items-center gap-6">
             <a
-              href="mailto:hello@algrowmedia.com?subject=Privacy%20Inquiry"
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              Contact &amp; Privacy
+              Book a Call
             </a>
             <button
               type="button"
@@ -1636,6 +1644,7 @@ export default function Home() {
                   <a
                     key={link.label}
                     href={link.href}
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="group relative flex items-center gap-1.5 py-1 text-sm text-white/70 transition-colors duration-200 hover:text-white"
                   >
                     <span>{link.label}</span>
@@ -1648,10 +1657,13 @@ export default function Home() {
               {/* Right Side Actions: Desktop CTA + Mobile Hamburger */}
               <div className="flex items-center gap-3">
                 <a
-                  href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
-                  className="hidden min-h-[38px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:border-white/40 hover:bg-white/20 lg:inline-flex"
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden min-h-[38px] items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:border-white/40 hover:bg-white/20 lg:inline-flex"
                 >
-                  Contact Us
+                  <span>Book a Call</span>
+                  <ArrowUpRight size={13} className="text-white/70" />
                 </a>
 
                 {/* Hamburger — mobile & tablet only (nav links show at lg+). */}
@@ -1726,10 +1738,12 @@ export default function Home() {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex min-h-[44px] items-center gap-2 border-b border-white/10 text-lg text-white/80"
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.href.startsWith("http") && <ArrowUpRight size={16} className="text-white/50" />}
               </a>
             ))}
           </div>
@@ -1786,10 +1800,13 @@ export default function Home() {
               >
                 <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
                   <a
-                    href="mailto:hello@algrowmedia.com?subject=Project%20Inquiry"
-                    className="min-h-[42px] sm:min-h-[46px] rounded-full bg-cream-button px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-lg shadow-purple-950/30 flex items-center justify-center"
+                    href={CAL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-[42px] sm:min-h-[46px] rounded-full bg-cream-button px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-lg shadow-purple-950/30 flex items-center justify-center gap-1.5"
                   >
-                    Get started
+                    <span>Book a 30-min Call</span>
+                    <ArrowUpRight size={14} />
                   </a>
                   <a
                     href="#testimonials"
@@ -1924,10 +1941,13 @@ export default function Home() {
 
                 <div className="mt-4 sm:mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 md:justify-start md:gap-4">
                   <a
-                    href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
-                    className="min-h-[40px] sm:min-h-[44px] rounded-full bg-dark-bg px-6 py-2 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-white transition hover:bg-black hover:scale-[1.02] shadow-md flex items-center justify-center"
+                    href={CAL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-[40px] sm:min-h-[44px] rounded-full bg-dark-bg px-6 py-2 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-white transition hover:bg-black hover:scale-[1.02] shadow-md flex items-center justify-center gap-1.5"
                   >
-                    Start Your Project
+                    <span>Book a 30-min Call</span>
+                    <ArrowUpRight size={14} />
                   </a>
                   <a
                     href="#testimonials"
