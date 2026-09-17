@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   title: "Algrow Media — Build High-Performance Web Apps, SaaS & Personal Branding",
   description:
     "Algrow Media builds, launches, and scales production ready SaaS platforms, custom web applications, and personal branding platforms for founders and businesses.",
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

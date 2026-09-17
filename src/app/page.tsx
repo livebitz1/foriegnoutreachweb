@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type ComponentProps } from "react";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -1078,24 +1079,17 @@ function FooterSection() {
         <div className="py-12 sm:py-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 border-b border-white/10">
           {/* Col 1: Brand & Positioning */}
           <div className="flex flex-col gap-4 lg:col-span-5">
-            <a href="#hero" className="flex items-center gap-2 w-fit">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="text-teal-500"
-              >
-                <circle cx="12" cy="12" r="10" fill="currentColor" />
-                <path
-                  d="M8 12.5L10.5 15L16 9"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            <a href="#hero" className="group flex items-center gap-2.5 w-fit">
+              <div className="relative h-8 w-8 sm:h-9 sm:w-9 overflow-hidden rounded-xl border border-white/20 shadow-md">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Algrow Media Logo"
+                  width={36}
+                  height={36}
+                  className="h-full w-full object-cover"
                 />
-              </svg>
-              <span className="text-xl font-bold tracking-tight text-white hover:text-teal-400 transition-colors">
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white group-hover:text-purple-300 transition-colors">
                 Algrow Media
               </span>
             </a>
@@ -1554,27 +1548,21 @@ export default function Home() {
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 md:px-8">
             <nav className="flex items-center justify-between">
               {/* Logo with subtle hover scale micro-interaction */}
-              <div className="group flex cursor-pointer items-center gap-2 transition-transform duration-200 ease-out hover:scale-[1.03]">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-teal-500 transition-transform duration-200 group-hover:rotate-6"
-                >
-                  <circle cx="12" cy="12" r="10" fill="currentColor" />
-                  <path
-                    d="M8 12.5L10.5 15L16 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              <a href="#hero" className="group flex cursor-pointer items-center gap-2.5 transition-transform duration-200 ease-out hover:scale-[1.03]">
+                <div className="relative h-8 w-8 sm:h-9 sm:w-9 overflow-hidden rounded-xl border border-white/20 shadow-md">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="Algrow Media Logo"
+                    width={36}
+                    height={36}
+                    className="h-full w-full object-cover"
+                    priority
                   />
-                </svg>
-                <span className="text-[18px] font-bold text-white transition-colors duration-200 group-hover:text-white">
+                </div>
+                <span className="text-[18px] font-bold text-white transition-colors duration-200 group-hover:text-purple-200">
                   Algrow Media
                 </span>
-              </div>
+              </a>
 
               {/* Nav links with animated underline */}
               <div className="hidden items-center gap-8 text-sm text-white/70 lg:flex">
@@ -1633,9 +1621,20 @@ export default function Home() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col bg-dark-bg lg:hidden">
           <div className="flex items-center justify-between border-b border-white/10 px-6 py-6">
-            <span className="text-[18px] font-bold text-white">
-              Algrow Media
-            </span>
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-8 w-8 overflow-hidden rounded-xl border border-white/20 shadow-md">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Algrow Media Logo"
+                  width={32}
+                  height={32}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span className="text-[18px] font-bold text-white">
+                Algrow Media
+              </span>
+            </div>
             <button
               type="button"
               aria-label="Close menu"
