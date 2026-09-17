@@ -31,15 +31,20 @@ import {
   Code2,
   Crown,
   Zap,
+  Video,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
 } from "lucide-react";
 import { Marquee } from "@/components/marquee";
 
 const navLinks = [
   { label: "Overview", href: "#hero" },
   { label: "Services", href: "#services" },
-  { label: "Tech Stack", href: "#strategy" },
+  { label: "AI Banners", href: "#posters" },
+  { label: "AI Videos", href: "#reels" },
   { label: "Client Proof", href: "#testimonials" },
-  { label: "Team", href: "#team" },
   { label: "Contact", href: "mailto:hello@algrowmedia.com" },
 ];
 
@@ -150,24 +155,24 @@ type CardMotionAttrs = Partial<ComponentProps<typeof motion.div>>;
 // Section 2's four pillars — Lucide icons with subtle shine containers.
 const pillars = [
   {
-    label: "Architecture",
+    label: "AI Video Ads",
     delay: 0,
-    icon: <Compass size={28} strokeWidth={1.5} />,
+    icon: <Video size={28} strokeWidth={1.5} />,
   },
   {
-    label: "Full Stack Dev",
+    label: "Ad Banners",
     delay: 0.3,
-    icon: <Sparkles size={28} strokeWidth={1.5} />,
-  },
-  {
-    label: "UI/UX Design",
-    delay: 0.6,
     icon: <Palette size={28} strokeWidth={1.5} />,
   },
   {
-    label: "Cloud & Scale",
+    label: "Web Apps & Sites",
+    delay: 0.6,
+    icon: <Code2 size={28} strokeWidth={1.5} />,
+  },
+  {
+    label: "SaaS Platforms",
     delay: 0.9,
-    icon: <Rocket size={28} strokeWidth={1.5} />,
+    icon: <Layers size={28} strokeWidth={1.5} />,
   },
 ];
 
@@ -411,64 +416,85 @@ interface ServiceItem {
 
 const servicesData: ServiceItem[] = [
   {
-    id: "saas",
-    badge: "01 SaaS & Cloud",
-    title: "SaaS Development & MVP",
-    subtitle: "From architecture to multi tenant production scale.",
+    id: "ai-videos",
+    badge: "01 AI Video Production",
+    title: "AI Videos & Commercials",
+    subtitle: "Viral short form reels, UGC & cinematic AI ads.",
     description:
-      "We design, engineer, and deploy robust Software as a Service platforms. Complete with Stripe subscription billing, role based access, high throughput APIs, and enterprise cloud infrastructure.",
-    icon: <Layers size={22} />,
+      "We produce high converting AI video ads, product commercial reels, dynamic motion visuals, and automated video pipelines engineered to maximize audience retention and ad ROAS.",
+    icon: <Video size={22} />,
     capabilities: [
-      "Multi tenant Cloud Architecture",
-      "Stripe & Subscription Billing Integration",
-      "Secure Auth & Role Based Access Control",
-      "PostgreSQL & Scalable API Pipelines",
-      "Automated CI/CD & Zero Downtime Deployments",
+      "Cinematic AI Video Generation & Editing",
+      "High Retention TikTok & Reels Commercials",
+      "Product Video Walkthroughs & Motion Ads",
+      "AI Scriptwriting, Voiceovers & Sound Design",
+      "Multi Platform Formats (9:16, 1:1, 16:9)",
     ],
-    ctaLabel: "Start your SaaS",
-    inquirySubject: "SaaS%20Development%20Project",
+    ctaLabel: "Order AI Videos",
+    inquirySubject: "AI%20Video%20Production%20Inquiry",
     tagColor: "border-purple-400/30 bg-purple-500/15 text-purple-200",
     iconColor: "text-purple-300",
     iconBgColor: "border-purple-400/30 bg-purple-500/15",
   },
   {
-    id: "webapps",
-    badge: "02 Web Applications",
-    title: "Custom Web Applications",
-    subtitle: "High performance digital products & dashboards.",
+    id: "banners",
+    badge: "02 Visual Creatives",
+    title: "Commercial Banners & Design",
+    subtitle: "High CTR ad banners, posters & campaign visuals.",
     description:
-      "Full stack custom web applications engineered with Next.js App Router for sub second speeds, real time dashboards, interactive workflows, and bespoke business systems.",
+      "Eye catching commercial banners, promotional posters, display ad suites, and bespoke visual identity assets designed to stop the scroll and dramatically boost conversion rates.",
+    icon: <Palette size={22} />,
+    capabilities: [
+      "Multi Size Display & Social Ad Banners",
+      "High Converting Promotional Posters",
+      "Brand Identity & Visual Asset Packs",
+      "CTR Optimized Creatives for Ad Campaigns",
+      "Ultra HD Print & Digital Deliverables",
+    ],
+    ctaLabel: "Get Ad Creatives",
+    inquirySubject: "Ad%20Banners%20Creative%20Inquiry",
+    tagColor: "border-fuchsia-400/30 bg-fuchsia-500/15 text-fuchsia-200",
+    iconColor: "text-fuchsia-300",
+    iconBgColor: "border-fuchsia-400/30 bg-fuchsia-500/15",
+  },
+  {
+    id: "webapps",
+    badge: "03 Web Engineering",
+    title: "Custom Web Apps & Websites",
+    subtitle: "Next.js App Router, ultra fast speeds & dashboards.",
+    description:
+      "Full stack custom web applications and high converting marketing websites engineered with modern Next.js for sub second load times, real time dashboards, and interactive experiences.",
     icon: <Code2 size={22} />,
     capabilities: [
-      "Modern Next.js & React 19 Frontend",
+      "Modern Next.js & React 19 Architecture",
       "Real Time Analytics & Admin Dashboards",
-      "Custom Workflow & API Integrations",
-      "Sub second Load Times & Edge Optimization",
-      "Responsive Cross Device Experience",
+      "High Converting Websites & Landing Pages",
+      "Edge Optimization & Sub Second Load Times",
+      "Responsive Cross Device User Experience",
     ],
-    ctaLabel: "Build your Web App",
+    ctaLabel: "Build your Website",
     inquirySubject: "Web%20Application%20Project",
     tagColor: "border-teal-400/30 bg-teal-500/15 text-teal-200",
     iconColor: "text-teal-300",
     iconBgColor: "border-teal-400/30 bg-teal-500/15",
   },
   {
-    id: "personal-branding",
-    badge: "03 Personal Branding",
-    title: "Personal Branding & Authority",
-    subtitle: "Turn your story into a high converting digital presence.",
+    id: "saas",
+    badge: "04 Cloud Platforms",
+    title: "SaaS Development & MVP",
+    subtitle: "From architecture to multi tenant production scale.",
     description:
-      "We architect high converting personal brand platforms, founder storefronts, and authority driven websites that position you as an industry leader and channel inquiries straight to WhatsApp & CRM.",
-    icon: <Crown size={22} />,
+      "We architect, engineer, and deploy robust Software as a Service platforms. Complete with Stripe subscription billing, secure role based auth, high throughput APIs, and scalable cloud infrastructure.",
+    icon: <Layers size={22} />,
     capabilities: [
-      "Founder & Creator Authority Hubs",
-      "Direct WhatsApp & CRM Inbound Lead Capture",
-      "Social Proof & High Trust Case Studies",
-      "Bespoke Typographic & Visual Brand Identity",
-      "Conversion Funnels for High Ticket Offers",
+      "Multi Tenant Cloud Architecture & Scalable APIs",
+      "Stripe & Subscription Billing Integration",
+      "Secure Auth & Role Based Access Control",
+      "PostgreSQL & High Throughput Data Pipelines",
+      "Automated CI/CD & Production Cloud Scaling",
     ],
-    ctaLabel: "Scale your Personal Brand",
-    inquirySubject: "Personal%20Branding%20Inquiry",
+    ctaLabel: "Start your SaaS",
+    inquirySubject: "SaaS%20Development%20Project",
     tagColor: "border-amber-400/30 bg-amber-500/15 text-amber-200",
     iconColor: "text-amber-300",
     iconBgColor: "border-amber-400/30 bg-amber-500/15",
@@ -485,7 +511,7 @@ function ServicesSection() {
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
       <div className="pointer-events-none absolute bottom-0 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
-      <div className="relative mx-auto max-w-[1280px]">
+      <div className="relative mx-auto max-w-[1360px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
@@ -493,25 +519,25 @@ function ServicesSection() {
             <span>Our Core Capabilities</span>
           </div>
 
-          <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
-            SaaS, Web Apps &amp;{" "}
+          <h2 className="mt-3.5 sm:mt-5 max-w-4xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
+            AI Videos, Banners,{" "}
             <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
-              Personal Branding
+              Web Apps &amp; SaaS
             </span>
             .
           </h2>
 
           <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
-            End to end technical engineering and brand authority services designed to scale your business, convert visitors, and establish market dominance.
+            End to end creative production and full stack engineering designed to scale your brand, capture attention, and drive revenue.
           </p>
         </div>
 
-        {/* 3-Column Services Grid */}
-        <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6 lg:gap-8">
+        {/* 4-Column Services Grid (1 col mobile, 2 cols tablet, 4 cols desktop) */}
+        <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-5 lg:gap-6">
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-7 md:p-8 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-7 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
             >
               <div>
                 {/* Top Badge & Icon */}
@@ -582,7 +608,7 @@ function ServicesSection() {
   );
 }
 
-type TestimonialCategory = "all" | "stores" | "agencies" | "creators";
+type TestimonialCategory = "all" | "videos" | "creatives" | "software";
 
 interface TestimonialItem {
   id: string;
@@ -590,7 +616,7 @@ interface TestimonialItem {
   role: string;
   company: string;
   quote: string;
-  category: "stores" | "agencies" | "creators";
+  category: "videos" | "creatives" | "software";
   categoryLabel: string;
 }
 
@@ -598,50 +624,50 @@ const testimonialsData: TestimonialItem[] = [
   {
     id: "1",
     author: "Rohan",
-    role: "Store Owner",
+    role: "E-Commerce Founder",
     company: "UniqueHub",
     quote:
-      "We sell everything from home decor to gadgets. Algrow Media let us list every category without touching a single line of code.",
-    category: "stores",
-    categoryLabel: "Multi category store",
+      "The AI video ads and product reels scaled our ROAS tremendously. Within two weeks, our campaign conversion rate doubled.",
+    category: "videos",
+    categoryLabel: "AI Video Ads",
   },
   {
     id: "2",
     author: "Priya",
-    role: "Founder",
+    role: "Marketing Director",
     company: "PriyaMobilePark",
     quote:
-      "Every order comes straight to our WhatsApp now. No more missed calls, no more confusion with customers.",
-    category: "stores",
-    categoryLabel: "Mobiles & accessories",
+      "Their commercial ad banners and promotional posters stopped the scroll completely. Clean, high CTR visual assets that made our brand look elite.",
+    category: "creatives",
+    categoryLabel: "Ad Creatives & Banners",
   },
   {
     id: "3",
     author: "Ajay",
-    role: "Agency Partner",
+    role: "SaaS Founder",
     company: "Scalisite",
     quote:
-      "We built Ajay with our agency, Scalisite, and the experience was smooth from strategy to launch. The platform gave us a polished storefront that feels premium and easy to manage.",
-    category: "agencies",
-    categoryLabel: "Agency built store",
+      "Algrow Media built our multi-tenant SaaS MVP from scratch. Stripe subscription billing, lightning fast Next.js architecture, and seamless cloud deployment.",
+    category: "software",
+    categoryLabel: "SaaS Platform",
   },
   {
     id: "4",
     author: "Ananya",
-    role: "Creator & Founder",
+    role: "Brand Creator",
     company: "AstroJewels",
     quote:
-      "I wanted a simple way to share my astrology inspired bracelets with customers online. Algrow Media made it easy to showcase my products and turn inquiries into orders through WhatsApp.",
-    category: "creators",
-    categoryLabel: "Astrology & Jewelry",
+      "From custom website design to viral AI reels, Algrow Media handled everything end to end. Customer inquiries channeled straight to WhatsApp without friction.",
+    category: "software",
+    categoryLabel: "Web App & Branding",
   },
 ];
 
 const testimonialCategories = [
   { id: "all", label: "All", fullLabel: "All Stories" },
-  { id: "stores", label: "Stores", fullLabel: "Retail & Stores" },
-  { id: "agencies", label: "Agencies", fullLabel: "Agency Built" },
-  { id: "creators", label: "Creators", fullLabel: "Creators & D2C" },
+  { id: "videos", label: "AI Videos", fullLabel: "AI Video Ads" },
+  { id: "creatives", label: "Banners", fullLabel: "Banners & Creatives" },
+  { id: "software", label: "Software", fullLabel: "Web Apps & SaaS" },
 ] as const;
 
 function TestimonialCard({ item }: { item: TestimonialItem }) {
@@ -692,7 +718,7 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
             />
           </div>
           <span className="text-xs sm:text-[13px] text-white/50 font-normal leading-tight mt-0.5 truncate">
-            Store: <strong className="font-semibold text-purple-200">{item.company}</strong>
+            {item.role} &bull; <strong className="font-semibold text-purple-200">{item.company}</strong>
           </span>
         </div>
 
@@ -734,7 +760,7 @@ function TestimonialsSection() {
           </div>
 
           <h2 className="mt-3.5 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
-            Software that turns vision into{" "}
+            Creatives &amp; software that drive{" "}
             <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
               revenue
             </span>
@@ -742,7 +768,7 @@ function TestimonialsSection() {
           </h2>
 
           <p className="mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
-            Real feedback from founders, store owners, and agencies who launched and scaled their web apps with us.
+            Real results from founders, e commerce brands, and businesses who scaled with our AI videos, banners, web apps, and SaaS platforms.
           </p>
 
           {/* Category Filter Tabs with responsive mobile container */}
@@ -804,31 +830,31 @@ function TestimonialsSection() {
             <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-auto">
               <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/15 border border-purple-400/20 px-3 py-1 text-xs font-semibold text-purple-200">
                 <Zap size={13} className="text-purple-300 fill-purple-300/30 shrink-0" />
-                <span>Production Ready Web Apps</span>
+                <span>Full Stack Digital Production</span>
               </div>
 
               <div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white">
-                  Ready to build your next web app or SaaS?
+                  Ready to create high converting videos or launch your software?
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-white/70 max-w-xl">
-                  Turn your product idea into a high performance, production ready platform with our full stack engineering team.
+                  Partner with our creative and engineering team to produce viral AI videos, commercial banners, custom web apps, and production ready SaaS.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full md:w-auto shrink-0">
               <a
-                href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
+                href="mailto:hello@algrowmedia.com?subject=Project%20Inquiry"
                 className="min-h-[44px] sm:min-h-[46px] w-full sm:w-auto rounded-full bg-cream-button px-6 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-md text-center flex items-center justify-center"
               >
                 Start Your Project
               </a>
               <a
-                href="#strategy"
+                href="#services"
                 className="min-h-[44px] sm:min-h-[46px] w-full sm:w-auto flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white transition-colors text-center"
               >
-                Explore Tech Stack
+                Explore Services
               </a>
             </div>
           </div>
@@ -838,179 +864,223 @@ function TestimonialsSection() {
   );
 }
 
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  tags: string[];
-  linkedin?: string;
-  twitter?: string;
-  email?: string;
-}
-
-const teamMembers: TeamMember[] = [
-  {
-    id: "1",
-    name: "Rohan Patel",
-    role: "Lead Software Architect",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
-    bio: "Architects scalable full stack applications, Next.js web apps, and resilient cloud infrastructure for fast growing SaaS products.",
-    tags: ["Full Stack Architecture", "Next.js & React", "System Design"],
-    linkedin: "#",
-    twitter: "#",
-    email: "rohan@algrowmedia.com",
-  },
-  {
-    id: "2",
-    name: "Dr. Aris Thorne",
-    role: "Principal Backend Engineer",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80",
-    bio: "Specializes in high throughput APIs, PostgreSQL database architecture, payment integrations, and microservices security.",
-    tags: ["Distributed Systems", "REST & GraphQL", "Database Scale"],
-    linkedin: "#",
-    twitter: "#",
-    email: "aris@algrowmedia.com",
-  },
-  {
-    id: "3",
-    name: "Klara Jensen",
-    role: "Lead UI/UX & Frontend Architect",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80",
-    bio: "Crafts intuitive SaaS user experiences, design systems, and responsive web application interfaces that convert users into active customers.",
-    tags: ["Product UI/UX", "Design Systems", "Web Performance"],
-    linkedin: "#",
-    twitter: "#",
-    email: "klara@algrowmedia.com",
-  },
+const postersData = [
+  { id: "poster-1", src: "/poster-1.png", alt: "Brand Campaign Poster 1" },
+  { id: "poster-2", src: "/poster-2.png", alt: "Brand Campaign Poster 2" },
+  { id: "poster-3", src: "/poster-3.png", alt: "Commercial Creative 3" },
+  { id: "poster-4", src: "/poster-4.png", alt: "Commercial Creative 4" },
+  { id: "poster-5", src: "/poster-5.png", alt: "Brand Design 5" },
+  { id: "poster-6", src: "/poster-6.png", alt: "Brand Design 6" },
+  { id: "poster-7", src: "/poster-7.png", alt: "Visual Creative 7" },
+  { id: "poster-8", src: "/poster-8.png", alt: "Visual Creative 8" },
+  { id: "poster-9", src: "/poster-9.png", alt: "Visual Creative 9" },
+  { id: "poster-10", src: "/poster-10.png", alt: "Visual Creative 10" },
 ];
 
-function TeamSection() {
+function PostersSection() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedPosters = showAll ? postersData : postersData.slice(0, 8);
+
   return (
     <section
-      id="team"
+      id="posters"
       className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
     >
       {/* Ambient background lighting */}
-      <div className="pointer-events-none absolute -top-40 right-1/4 w-[400px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute -top-40 right-1/4 w-[400px] sm:w-[650px] md:w-[850px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
       <div className="pointer-events-none absolute bottom-0 left-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
       <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
-            <Users size={13} className="text-purple-300 shrink-0" />
-            <span>Engineering &amp; Product Leadership</span>
+            <Palette size={13} className="text-purple-300 shrink-0" />
+            <span>Ad Banners &amp; Visual Creatives</span>
           </div>
 
           <h2 className="mt-4 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
-            Crafted by engineers, for{" "}
+            High impact commercial{" "}
             <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
-              founders
+              banners
             </span>
             .
           </h2>
 
           <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
-            No junior handoffs or bloated agency overhead. You collaborate directly with senior technical architects and product designers dedicated to shipping your SaaS.
+            Commercial ad banners, promotional posters, and brand visuals designed to maximize click through rates and elevate your product presence.
           </p>
         </div>
 
-        {/* 3-Member Grid */}
-        <div className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6 lg:gap-8">
-          {teamMembers.map((member) => (
+        {/* Responsive Poster Grid */}
+        <div className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          {displayedPosters.map((poster) => (
             <div
-              key={member.id}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_16px_40px_-8px_rgba(124,58,237,0.25)]"
+              key={poster.id}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 sm:p-2.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.3)] hover:scale-[1.02]"
             >
-              {/* Member Portrait Image Container */}
-              <div>
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-white/5 shadow-inner border border-white/10">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  {/* Soft bottom vignette overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
-
-                  {/* Floating role pill badge on bottom of image */}
-                  <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-purple-200 border border-purple-400/30 shadow-sm">
-                      <Zap size={11} className="text-purple-300 fill-purple-300/30 shrink-0" />
-                      {member.role}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Info & Bio */}
-                <div className="mt-4 sm:mt-5 px-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white transition-colors duration-200 group-hover:text-purple-200">
-                      {member.name}
-                    </h3>
-                  </div>
-
-                  <p className="mt-2.5 text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
-                    {member.bio}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {member.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-purple-500/15 px-2.5 py-1 text-[10px] sm:text-[11px] font-medium text-purple-200 border border-purple-400/30"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Social / Contact Links Footer */}
-              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 px-1">
-                <span className="text-[11px] font-medium uppercase tracking-wider text-white/40">
-                  Connect
-                </span>
-
-                <div className="flex items-center gap-1.5">
-                  <a
-                    href={member.linkedin}
-                    aria-label={`${member.name} LinkedIn`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={member.twitter}
-                    aria-label={`${member.name} X / Twitter`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    aria-label={`Email ${member.name}`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 border border-white/15 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-400 hover:scale-105"
-                  >
-                    <Mail size={13} />
-                  </a>
-                </div>
+              <div className="relative aspect-square sm:aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black/50 border border-white/10 shadow-inner">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={poster.src}
+                  alt={poster.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
               </div>
             </div>
           ))}
         </div>
+
+        {postersData.length > 8 && (
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-purple-600 hover:border-purple-400 hover:scale-105"
+            >
+              <span>{showAll ? "Show Less" : `View All (${postersData.length}) Creatives`}</span>
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+const reelsData = [
+  { id: "reel-1", videoSrc: "/reel-1.mp4" },
+  { id: "reel-2", videoSrc: "/reel-2.mp4" },
+  { id: "reel-3", videoSrc: "/reel-3.mp4" },
+  { id: "reel-4", videoSrc: "/reel-4.mp4" },
+  { id: "reel-5", videoSrc: "/reel-5.mp4" },
+  { id: "reel-6", videoSrc: "/reel-6.mp4" },
+  { id: "reel-7", videoSrc: "/reel-7.mp4" },
+  { id: "reel-8", videoSrc: "/reel-8.mp4" },
+  { id: "reel-9", videoSrc: "/reel-9.mp4" },
+  { id: "reel-10", videoSrc: "/reel-10.mp4" },
+  { id: "reel-11", videoSrc: "/reel-11.mp4" },
+  { id: "reel-12", videoSrc: "/reel-12.mp4" },
+  { id: "reel-13", videoSrc: "/reel-13.mp4" },
+];
+
+function ReelCard({ item }: { item: { id: string; videoSrc: string } }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  }, []);
+
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  return (
+    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-2 sm:p-2.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.07] hover:border-purple-400/40 hover:ring-1 hover:ring-purple-400/30 hover:shadow-[0_20px_45px_-8px_rgba(124,58,237,0.3)]">
+      {/* Plain Video Container */}
+      <div
+        onClick={togglePlay}
+        className="relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-2xl bg-black shadow-inner border border-white/10"
+      >
+        <video
+          ref={videoRef}
+          src={item.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        />
+
+        {/* Minimal Audio Mute/Unmute toggle in top-right */}
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+          className="absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white/90 border border-white/20 shadow-md transition-all duration-200 hover:bg-purple-600 hover:scale-110"
+        >
+          {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="text-teal-400" />}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ReelsSection() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedReels = showAll ? reelsData : reelsData.slice(0, 8);
+
+  return (
+    <section
+      id="reels"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
+    >
+      {/* Target anchor for backward compatibility */}
+      <div id="team" className="absolute -top-24" />
+
+      {/* Ambient background lighting */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[400px] sm:w-[650px] md:w-[850px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-0 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
+
+      <div className="relative mx-auto max-w-[1280px]">
+        {/* Header Block */}
+        <div className="flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
+            <Video size={13} className="text-purple-300 shrink-0" />
+            <span>AI Videos &amp; Motion Ads</span>
+          </div>
+
+          <h2 className="mt-4 sm:mt-5 max-w-3xl font-display text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-white">
+            AI video ads in{" "}
+            <span className="font-script text-4xl sm:text-6xl md:text-7xl font-normal italic text-purple-300 inline-block">
+              motion
+            </span>
+            .
+          </h2>
+
+          <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
+            High retention AI video ads, product commercials, and viral short form motion campaigns engineered for high ROAS.
+          </p>
+        </div>
+
+        {/* Responsive Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop */}
+        <div className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          {displayedReels.map((item) => (
+            <ReelCard key={item.id} item={item} />
+          ))}
+        </div>
+
+        {reelsData.length > 8 && (
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-purple-600 hover:border-purple-400 hover:scale-105"
+            >
+              <span>{showAll ? "Show Less" : `View All (${reelsData.length}) Videos`}</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -1042,21 +1112,21 @@ function FooterSection() {
           <h2 className="max-w-4xl font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight text-white">
             Let&apos;s build your{" "}
             <span className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal italic text-white/90 inline-block">
-              software
+              vision
             </span>
             .
           </h2>
 
           <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2">
-            Ready to launch your high performance web app, MVP, or SaaS? Let&apos;s map out your technical architecture and product roadmap.
+            Ready to produce viral AI videos, high converting ad banners, or launch your next custom web app and SaaS platform? Let&apos;s connect.
           </p>
 
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
             <a
-              href="mailto:hello@algrowmedia.com?subject=Technical%20Discovery%20Call%20Inquiry"
+              href="mailto:hello@algrowmedia.com?subject=Project%20Discovery%20Inquiry"
               className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-cream-button px-8 py-3.5 text-sm sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:brightness-105 hover:scale-[1.02] shadow-lg text-center"
             >
-              Schedule a Technical Discovery Call →
+              Start a Project Discovery Call →
             </a>
 
             <button
@@ -1099,7 +1169,7 @@ function FooterSection() {
             </a>
 
             <p className="max-w-sm text-xs sm:text-sm text-white/65 leading-relaxed font-normal">
-              High performance SaaS engineering, custom web applications, and personal branding studio. We architect, build, and ship production ready digital products and authority platforms.
+              Full service digital production and software studio specializing in AI video production, commercial ad banners, custom web applications, websites, and scalable SaaS platforms.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-white/50">
@@ -1117,7 +1187,8 @@ function FooterSection() {
               {[
                 { label: "Overview", href: "#hero" },
                 { label: "Services", href: "#services" },
-                { label: "Tech Stack", href: "#strategy" },
+                { label: "AI Banners", href: "#posters" },
+                { label: "AI Videos", href: "#reels" },
                 { label: "Client Proof", href: "#testimonials" },
                 { label: "Start a Project", href: "mailto:hello@algrowmedia.com" },
               ].map((item) => (
@@ -1704,9 +1775,9 @@ export default function Home() {
                 }}
               >
                 <h1 className="mx-auto max-w-4xl font-display text-[34px] sm:text-[42px] md:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-white">
-                  We scale your business 10x.
+                  AI Videos, Ad Banners,
                   <br />
-                  Turn your story into authority.
+                  Web Apps &amp; Scalable SaaS.
                 </h1>
               </motion.div>
             )}
@@ -1724,7 +1795,7 @@ export default function Home() {
               >
                 <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
                   <a
-                    href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
+                    href="mailto:hello@algrowmedia.com?subject=Project%20Inquiry"
                     className="min-h-[42px] sm:min-h-[46px] rounded-full bg-cream-button px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-dark-bg transition-all duration-200 hover:bg-purple-50 hover:scale-[1.02] shadow-lg shadow-purple-950/30 flex items-center justify-center"
                   >
                     Get started
@@ -1740,7 +1811,7 @@ export default function Home() {
                 {/* Trust Badge */}
                 <div className="mt-2.5 sm:mt-3 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-white/70">
                   <ShieldCheck size={14} className="text-purple-300 shrink-0" />
-                  <span>SaaS, Custom Web Apps &amp; Personal Branding</span>
+                  <span>AI Videos &bull; Banners &bull; Custom Web Apps &bull; SaaS Platforms</span>
                 </div>
 
                 {/* Scroll Cue Hint */}
@@ -1776,13 +1847,13 @@ export default function Home() {
                       className="absolute inset-x-0 top-0 font-display text-3xl leading-tight text-white/90 md:text-4xl"
                       style={{ opacity: travelLine1Opacity, y: travelLine1Y }}
                     >
-                      From raw concept.
+                      From AI videos &amp; banners.
                     </motion.p>
                     <motion.p
                       className="absolute inset-x-0 top-0 font-display text-3xl leading-tight text-white/90 md:text-4xl"
                       style={{ opacity: travelLine2Opacity, y: travelLine2Y }}
                     >
-                      To a production ready SaaS.
+                      To scalable web apps &amp; SaaS.
                     </motion.p>
                   </div>
 
@@ -1792,7 +1863,7 @@ export default function Home() {
                       className="absolute font-display text-4xl sm:text-5xl font-bold tracking-tight text-white/90"
                       style={{ opacity: word1Opacity, scale: word1Scale }}
                     >
-                      Architect.
+                      Create.
                     </motion.div>
                     <motion.div
                       className="absolute font-display text-4xl sm:text-5xl font-bold tracking-tight text-white/90"
@@ -1804,7 +1875,7 @@ export default function Home() {
                       className="absolute font-display text-4xl sm:text-5xl font-bold tracking-tight text-white/90"
                       style={{ opacity: word3Opacity, scale: word3Scale }}
                     >
-                      Deploy.
+                      Scale.
                     </motion.div>
                   </div>
                 </>
@@ -1819,13 +1890,13 @@ export default function Home() {
                 style={{ opacity: section2ContentOpacity, x: section2ContentX }}
               >
                 <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs uppercase tracking-wider text-gray-500 md:justify-start">
-                  SaaS &amp; Web App Engineering
+                  AI Creatives &amp; Full Stack Software
                 </div>
 
                 <h2 className="mt-2 sm:mt-4 font-display text-2xl sm:text-4xl md:text-6xl leading-tight tracking-tight">
-                  <span className="block text-[#0d021f]">Build web apps</span>
-                  <span className="block text-accent-maroon">that scale seamlessly,</span>
-                  <span className="block text-[#0d021f]">and convert.</span>
+                  <span className="block text-[#0d021f]">High impact creatives,</span>
+                  <span className="block text-accent-maroon">modern web apps,</span>
+                  <span className="block text-[#0d021f]">and scalable SaaS.</span>
                 </h2>
 
                 <motion.div
@@ -1931,13 +2002,16 @@ export default function Home() {
     {/* Section 3: Core Services Showcase (SaaS, Web Apps & Personal Branding) */}
     <ServicesSection />
 
-    {/* Section 4: Testimonials & Social Proof Showcase */}
+    {/* Section 4: Brand Creatives & Visual Posters Showcase */}
+    <PostersSection />
+
+    {/* Section 5: Real Video Reels Testimonials Showcase */}
+    <ReelsSection />
+
+    {/* Section 6: Testimonials & Social Proof Showcase */}
     <TestimonialsSection />
 
-    {/* Section 5: Team Showcase */}
-    <TeamSection />
-
-    {/* Section 6: Footer & Grand Finale */}
+    {/* Section 7: Footer & Grand Finale */}
     <FooterSection />
   </div>
   );

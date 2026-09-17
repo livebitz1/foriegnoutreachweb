@@ -27,9 +27,9 @@ const scriptFont = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Algrow Media — Build High-Performance Web Apps, SaaS & Personal Branding",
+  title: "Algrow Media — AI Videos, Banners, Web Apps, Websites & SaaS Development",
   description:
-    "Algrow Media builds, launches, and scales production ready SaaS platforms, custom web applications, and personal branding platforms for founders and businesses.",
+    "Algrow Media produces high-converting AI videos & commercial banners, and builds production-ready custom web applications, modern websites, and scalable SaaS platforms.",
   icons: {
     icon: "/logo.jpeg",
     apple: "/logo.jpeg",
