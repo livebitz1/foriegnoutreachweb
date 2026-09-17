@@ -477,19 +477,13 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,#3b0764_0%,#1e0838_45%,var(--color-dark-bg)_85%)] py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-8 overflow-hidden text-white"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-hidden text-white"
     >
-      {/* Top Smooth Transition Shade: Seamlessly dissolves from light section into deep purple */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-44 md:h-56 bg-gradient-to-b from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
-
-      {/* Bottom Smooth Transition Shade: Seamlessly dissolves from deep purple into next light section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-44 md:h-56 bg-gradient-to-t from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
-
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
-      <div className="pointer-events-none absolute bottom-12 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-0 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
 
-      <div className="relative mx-auto max-w-[1280px] z-20">
+      <div className="relative mx-auto max-w-[1280px]">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
@@ -1028,14 +1022,11 @@ function FooterSection() {
   };
 
   return (
-    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-20 sm:pt-28 md:pt-36 pb-12 px-4 sm:px-6 md:px-8">
-      {/* Top Smooth Transition Shade from Team light section into Footer dark purple */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-44 md:h-56 bg-gradient-to-b from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
-
+    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-16 sm:pt-24 md:pt-32 pb-12 px-4 sm:px-6 md:px-8">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -top-48 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[500px] bg-accent-maroon/15 blur-[120px] rounded-full" />
 
-      <div className="relative mx-auto max-w-[1280px] z-20">
+      <div className="relative mx-auto max-w-[1280px]">
         {/* Top Grand CTA Banner */}
         <div className="flex flex-col items-center text-center pb-14 sm:pb-20 border-b border-white/10">
           <h2 className="max-w-4xl font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight text-white">
@@ -1551,7 +1542,7 @@ export default function Home() {
   }
 
   return (
-    <div id="hero" className="min-h-full w-full bg-light-bg">
+    <div id="hero" className="min-h-full w-full bg-dark-bg">
       <div className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#4c1d95_0%,#260a4e_45%,var(--color-dark-bg)_85%)]">
         {/* Top Navbar */}
         <header className="absolute top-0 inset-x-0 z-50 w-full py-5 bg-transparent">
@@ -1684,14 +1675,6 @@ export default function Home() {
         className="relative flow-root h-[220vh] md:h-[260vh]"
       >
         <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-          {/* Smooth Light Background Overlay for Section 2:
-              At scroll progress 0 (hero), opacity is 0 so the hero's rich glowing
-              radial gradient is 100% visible. Fades in smoothly as cards explode into section 2. */}
-          <motion.div
-            className="pointer-events-none absolute inset-0 bg-[#f8f6fc] z-0"
-            style={{ opacity: section2BgOpacity }}
-          />
-
           <div className="relative mx-auto h-[570px] sm:h-[620px] md:h-[700px] lg:h-[740px] xl:h-[780px] max-h-[92vh] w-full max-w-[1280px] px-4 sm:px-6 md:px-8 flex items-center justify-center z-10">
 
             {/* Hero Headline - Dissolves sleekly upwards on scroll */}
@@ -1819,14 +1802,15 @@ export default function Home() {
                 className="absolute inset-x-0 top-1 px-3 sm:px-4 text-center md:inset-x-auto md:left-12 md:top-1/2 md:max-w-md md:-translate-y-1/2 md:px-0 md:text-left"
                 style={{ opacity: section2ContentOpacity, x: section2ContentX }}
               >
-                <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs uppercase tracking-wider text-gray-500 md:justify-start">
-                  SaaS &amp; Web App Engineering
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200">
+                  <Sparkles size={12} className="text-purple-300" />
+                  <span>SaaS &amp; Web App Engineering</span>
                 </div>
 
-                <h2 className="mt-2 sm:mt-4 font-display text-2xl sm:text-4xl md:text-6xl leading-tight tracking-tight">
-                  <span className="block text-[#0d021f]">Build web apps</span>
-                  <span className="block text-accent-maroon">that scale seamlessly,</span>
-                  <span className="block text-[#0d021f]">and convert.</span>
+                <h2 className="mt-2.5 sm:mt-4 font-display text-2xl sm:text-4xl md:text-6xl leading-tight tracking-tight">
+                  <span className="block text-white">Build web apps</span>
+                  <span className="block text-purple-300">that scale seamlessly,</span>
+                  <span className="block text-white">and convert.</span>
                 </h2>
 
                 <motion.div
@@ -1842,7 +1826,7 @@ export default function Home() {
                       variants={pillarItemVariants}
                       className="group flex flex-col items-center gap-1.5 sm:gap-2 md:items-start"
                     >
-                      <div className="relative flex h-10 w-10 sm:h-13 sm:w-13 md:h-15 md:w-15 items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl border border-accent-maroon/25 bg-gradient-to-br from-accent-maroon/12 via-purple-500/5 to-transparent shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-accent-maroon group-hover:shadow-md">
+                      <div className="relative flex h-10 w-10 sm:h-13 sm:w-13 md:h-15 md:w-15 items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl border border-purple-400/25 bg-purple-500/15 backdrop-blur-md shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400/50 group-hover:bg-purple-500/25 group-hover:shadow-md">
                         {/* Continuous subtle shine sweep overlay */}
                         <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl sm:rounded-2xl">
                           <div
@@ -1850,11 +1834,11 @@ export default function Home() {
                             style={{ animationDelay: `${pillar.delay}s` }}
                           />
                         </div>
-                        <div className="relative z-10 text-accent-maroon transition-transform duration-300 group-hover:scale-110 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
+                        <div className="relative z-10 text-purple-200 transition-transform duration-300 group-hover:scale-110 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
                           {pillar.icon}
                         </div>
                       </div>
-                      <span className="text-[8px] sm:text-[9.5px] md:text-[11px] font-medium uppercase tracking-wider text-gray-500 text-center md:text-left">
+                      <span className="text-[8px] sm:text-[9.5px] md:text-[11px] font-medium uppercase tracking-wider text-white/70 text-center md:text-left">
                         {pillar.label}
                       </span>
                     </motion.div>
@@ -1864,13 +1848,13 @@ export default function Home() {
                 <div className="mt-4 sm:mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 md:justify-start md:gap-4">
                   <a
                     href="mailto:hello@algrowmedia.com?subject=SaaS%20Project%20Inquiry"
-                    className="min-h-[40px] sm:min-h-[44px] rounded-full bg-dark-bg px-6 py-2 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-white transition hover:bg-black hover:scale-[1.02] shadow-md flex items-center justify-center"
+                    className="min-h-[40px] sm:min-h-[44px] rounded-full bg-cream-button px-6 py-2 sm:px-8 sm:py-3 text-xs sm:text-base font-semibold text-dark-bg transition hover:bg-purple-50 hover:scale-[1.02] shadow-md flex items-center justify-center"
                   >
                     Start Your Project
                   </a>
                   <a
                     href="#testimonials"
-                    className="flex min-h-[40px] sm:min-h-[44px] items-center text-xs sm:text-base text-gray-600 underline-offset-4 hover:text-dark-bg hover:underline transition-colors"
+                    className="flex min-h-[40px] sm:min-h-[44px] items-center text-xs sm:text-base text-white/70 underline-offset-4 hover:text-white hover:underline transition-colors"
                   >
                     See client results
                   </a>
