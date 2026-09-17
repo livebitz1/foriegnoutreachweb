@@ -477,13 +477,19 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#3b0764_0%,#1e0838_40%,var(--color-dark-bg)_80%)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 border-t border-purple-900/40 overflow-hidden text-white"
+      className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,#3b0764_0%,#1e0838_45%,var(--color-dark-bg)_85%)] py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-8 overflow-hidden text-white"
     >
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
-      <div className="pointer-events-none absolute bottom-0 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
+      {/* Top Smooth Transition Shade: Seamlessly dissolves from light section into deep purple */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-44 md:h-56 bg-gradient-to-b from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
 
-      <div className="relative mx-auto max-w-[1280px]">
+      {/* Bottom Smooth Transition Shade: Seamlessly dissolves from deep purple into next light section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-44 md:h-56 bg-gradient-to-t from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
+
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] md:w-[800px] h-[400px] bg-purple-600/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute bottom-12 right-10 w-[300px] sm:w-[500px] h-[300px] bg-fuchsia-600/10 blur-[120px] rounded-full" />
+
+      <div className="relative mx-auto max-w-[1280px] z-20">
         {/* Header Block */}
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md px-3.5 sm:px-4 py-1 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-sm">
@@ -1022,11 +1028,14 @@ function FooterSection() {
   };
 
   return (
-    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-16 sm:pt-24 md:pt-32 pb-12 px-4 sm:px-6 md:px-8">
+    <footer className="relative w-full bg-dark-bg bg-[radial-gradient(ellipse_at_center,var(--color-dark-bg-glow)_0%,var(--color-dark-bg)_75%)] text-white overflow-hidden pt-20 sm:pt-28 md:pt-36 pb-12 px-4 sm:px-6 md:px-8">
+      {/* Top Smooth Transition Shade from Team light section into Footer dark purple */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-44 md:h-56 bg-gradient-to-b from-[#f8f6fc] via-[#28084d]/60 via-40% to-transparent z-10" />
+
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute -top-48 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[500px] bg-accent-maroon/15 blur-[120px] rounded-full" />
 
-      <div className="relative mx-auto max-w-[1280px]">
+      <div className="relative mx-auto max-w-[1280px] z-20">
         {/* Top Grand CTA Banner */}
         <div className="flex flex-col items-center text-center pb-14 sm:pb-20 border-b border-white/10">
           <h2 className="max-w-4xl font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight text-white">
